@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory
+  android:title="Knitting Needle Preferences"
+  >
+  <ListPreference
+  android:key="NEEDLE_SIZE_OPTION"
+  android:title="Needle Size Option"
+  android:summary="Would you like to see US sizes, Metric, or Both?"
+  android:entries="@array/needle_size_options"
+  android:entryValues="@array/needle_size_vals"
+  android:defaultValue="both"
+  />
+  
+  </PreferenceCategory>
+</PreferenceScreen>

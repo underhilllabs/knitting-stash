@@ -1,0 +1,126 @@
+package com.underhilllabs.knitting;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+	
+	
+public class NeedleView extends Activity {
+	private TextView material;
+	private TextView length;
+	private TextView size;
+	private TextView type;
+	private TextView notes;
+	private TextView tv_in_use;
+	private DbAdapter ndb;
+	private long rowid;
+	private Cursor cur;
+	private int in_use;
+	private static final int EDIT_ID = Menu.FIRST;
+	private static final int DEL_ID = Menu.FIRST+1;
+	private static final int HOME_ID = Menu.FIRST+2;
+ 	public static final String PREF_SIZE = "NEEDLE_SIZE_OPTION";
+ 	private String[] size_array;
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.view_needle);
+        notes = (TextView) findViewById(R.id.notes);
+        size = (TextView) findViewById(R.id.size);
+        type = (TextView) findViewById(R.id.type);
+        tv_in_use = (TextView) findViewById(R.id.tv_in_use);
+        length = (TextView) findViewById(R.id.length);
+        material = (TextView) findViewById(R.id.material);
+ 		// get prefs for metric or us needle sizing
+        Context context = getApplicationContext();
+ 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+ 		String size_option = prefs.getString(PREF_SIZE, "both");
+ 		size_array = null;
+ 		if(size_option.contains("us")) {
+ 			size_array= getResources().getStringArray(R.array.us_size_array);
+ 		} else if(size_option.contains("metric")) {
+ 			size_array= getResources().getStringArray(R.array.metric_size_array);
+ 		} else {
+ 			size_array= getResources().getStringArray(R.array.size_array);
+ 		}
+        
+        // get rowid from Intent Bundle
+        Bundle extras = getIntent().getExtras();
+        rowid = extras.getLong("com.underhilllabs.knitting.rowid"); 
+ 		
+        
+        ndb = new DbAdapter(this);
+        ndb.open();
+        fill_data();
+    }
+    @Override
+    public void onDestroy() {
+    	super.onDestroy();
+    	ndb.close();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        boolean result = super.onCreateOptionsMenu(menu);
+        MenuItem editm = menu.add(0, EDIT_ID, 0, R.string.edit_app_name);
+        editm.setIcon(android.R.drawable.ic_menu_edit);
+        MenuItem delm = menu.add(0, DEL_ID, 0, R.string.del_app_name);
+        delm.setIcon(android.R.drawable.ic_menu_delete);
+        MenuItem homem = menu.add(0, HOME_ID, 0, "Home");
+        homem.setIcon(R.drawable.ic_menu_home);
+        return result;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case EDIT_ID:
+            Intent i = new Intent(this, NeedleEditActivity.class);
+            i.putExtra("com.underhilllabs.knitting.rowid", rowid);
+            startActivity(i);
+            return true;
+        case DEL_ID:
+			ndb.deleteNeedle(rowid);
+        	Intent i2 = new Intent(this, NeedleListView.class);
+        	startActivity(i2);
+        	return true;
+        case HOME_ID:
+        	Intent i3 = new Intent(this, KnittingStashHome.class);
+        	i3.putExtra("com.underhilllabs.knitting.tabid",0);
+            startActivity(i3);
+                
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    
+    public void fill_data() {
+    	cur = ndb.fetchNeedle(rowid);
+        startManagingCursor(cur);
+        type.setText(cur.getString(5) );
+        material.setText(cur.getString(6));
+        length.setText(cur.getString(3));
+        notes.setText(cur.getString(7));
+        //size.setText(cur.getString(1));
+        int size_i = cur.getInt(2);
+        size.setText(size_array[size_i]);
+        in_use=cur.getInt(10);
+        if(in_use>0) {
+        	Resources r  = NeedleView.this.getResources();
+        	tv_in_use.setBackgroundColor(r.getColor(R.color.green));
+      	    tv_in_use.setPadding(5, 0, 5, 0);
+        	tv_in_use.setText("In Use");
+        	
+        }
+    }
+	
+}

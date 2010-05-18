@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      android:versionCode="9"
+      android:versionName="0.9" package="com.underhilllabs.knitting">
+    <application android:icon="@drawable/knit10" android:theme="@android:style/Theme" android:label="@string/home_app_name">
+
+    		<activity android:name=".KnittingStashHome"
+                  android:label="@string/home_app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       
+       	<activity android:name=".KnittingStashTabs"
+                  android:label="@string/list_app_name">
+        </activity>
+       	<activity android:name=".KnittingStashListHome"
+                  android:label="@string/list_app_name">
+
+       </activity>
+       
+    		<activity android:name=".NeedleListView"
+                  android:label="@string/list_app_name">
+        </activity>
+       
+        <activity android:name=".NeedleAddActivity"
+                  android:label="@string/add_app_name">
+        </activity>
+         <activity android:name=".Counters"
+                  android:label="Counters">
+        </activity>
+       
+        <activity android:name=".NeedleEditActivity"
+                  android:label="@string/edit_app_name">
+        </activity>
+        <activity android:name=".NeedleView"
+                  android:label="@string/view_app_name">
+        </activity>
+        
+        <activity android:name=".HookEditActivity"
+                  android:label="@string/edit_hook_app_name">
+        </activity>
+        <activity android:name=".HookView"
+                  android:label="@string/view_hook_app_name">
+        </activity>
+        <activity android:name=".HookAddActivity"
+                  android:label="@string/add_hook_app_name">
+        </activity>
+        <activity android:name=".HookListView"
+                  android:label="@string/list_hook_app_name">
+        </activity>
+
+
+        <activity android:name=".ProjectEditActivity"
+                  android:label="@string/edit_project_app_name">
+        </activity>
+        <activity android:name=".ProjectView"
+                  android:label="@string/view_project_app_name">
+        </activity>
+        <activity android:name=".ProjectFullViewActivity"
+                  android:label="@string/view_project_app_name">
+        </activity>
+        <activity android:name=".ProjectAddActivity"
+                  android:label="@string/add_project_app_name">
+        </activity>
+        <activity android:name=".ProjectListView"
+                  android:label="@string/list_project_app_name">
+        </activity>
+
+        <activity android:name=".CounterEditActivity"
+                  android:label="@string/edit_counter_app_name">
+        </activity>
+        <activity android:name=".CounterView"
+                  android:label="@string/view_counter_app_name">
+        </activity>
+        <activity android:name=".CounterAddActivity"
+                  android:label="@string/add_counter_app_name">
+        </activity>
+        <activity android:name=".CounterListView"
+                  android:label="@string/list_counter_app_name">
+        </activity>
+        <activity android:name=".EditPreferencesActivity"
+                  android:label="Edit Preferences">
+        </activity>
+        <activity android:name=".myPreferencesActivity"
+                  android:label="Edit Preferences">
+        </activity>
+
+    </application>
+
+
+<uses-sdk android:minSdkVersion="3"></uses-sdk>
+</manifest> 

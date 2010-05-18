@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/widget55"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+<TextView  
+	style="@style/FormTop"
+    android:text="@string/add_hook_app_name"
+    />
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/size"
+    />
+        <Spinner 
+        android:id="@+id/spinner_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:prompt="@string/size"
+    />
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/type"
+    />
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/material"
+    />
+<RadioGroup
+	  android:id="@+id/rg_material"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+      
+      <RadioButton android:id="@+id/radio_bamboo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Bamboo" />
+      <RadioButton android:id="@+id/radio_wood"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Wood" />
+      <RadioButton android:id="@+id/radio_steel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Steel" />
+    </RadioGroup>
+
+<Button  
+	android:id="@+id/add_hook_button"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Add Hook"
+    />
+    
+
+</LinearLayout>
+</ScrollView>

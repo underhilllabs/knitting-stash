@@ -1,0 +1,244 @@
+<resources>
+    <string name="hello">Hello World, Knitting Stash!</string>
+    <string name="viewformtop">Knitting Needle Detail</string>
+    <string name="app_name">Knitting Needles</string>
+    <string name="home_app_name">Knitting Stash</string>
+    <string name="home_app_name_beta">Knitting Stash Beta</string>
+
+
+    <string name="list_app_name">Knitting Needles</string>
+    <string name="view_app_name">View Needle Details</string>
+    <string name="add_app_name">Add New Needle</string>
+    <string name="edit_app_name">Edit Needle</string>
+
+    <string name="list_hook_app_name">Hook Inventory</string>
+    <string name="view_hook_app_name">View Hook Details</string>
+    <string name="add_hook_app_name">Add New Hook</string>
+    <string name="edit_hook_app_name">Edit Hook</string>
+
+    <string name="list_project_app_name">Projects</string>
+    <string name="view_project_app_name">View Project Details</string>
+    <string name="add_project_app_name">Add New Project</string>
+    <string name="edit_project_app_name">Edit Project Details</string>
+
+    <string name="list_counter_app_name">Available Counters</string>
+    <string name="view_counter_app_name">View Counter</string>
+    <string name="add_counter_app_name">Add New Counter</string>
+    <string name="edit_counter_app_name">Edit Counter Details</string>
+
+    <string name="del_app_name">Delete Needle</string>
+    <string name="crochet_button">Crochet Hooks</string>
+    <string name="knit_button">Knitting Needles</string>
+    <string name="counter_button">Counters</string>
+    <string name="calc_button">Calculator</string>
+    <string name="project_button">Projects</string>
+    <string name="menu_add_hook">Add Hook</string>
+    
+    
+    <string name="type">Type: </string>
+    <string name="material">Material: </string>
+    <string name="length">Length: </string>
+    <string name="size">Size: </string>    
+    <string name="sort_size">Sort by size</string>    
+    <string name="sort_type">Sort by type</string>    
+    
+    <string name="sort_in_use">Show Not In Use</string>    
+    <string name="notes_desc">Notes: </string>
+    <string name="shopping_desc">Shopping needed: </string>
+    <string name="empty_list">No needles found in stash.  Add with the menu button.</string>
+    <string name="project_top_form">Create New Project</string>
+    <string name="wood">wood</string>
+    <string name="bamboo">bamboo</string>
+    <string name="steel">steel</string>
+
+    <string name="circular">circular</string>
+    <string name="dpns">dpns</string>
+    <string name="straight">straight</string>
+
+    <string name="addformtop">Add Knitting Needle to Inventory</string>
+    <string name="editformtop">Edit Knitting Needle</string>
+    <string name="projectformtop">Project Details</string>
+    <string name="add">Add Knitting Needle</string>
+    <string name="update">Update Knitting Needle</string>
+    <string name="update_hook">Update Hook</string>
+    <string name="update_project">Update Project</string>
+    <string name="update_counter">Update Counter</string>
+    <string name="menu_add">Add Needle</string>
+    <string name="menu_add_project">Add Project</string>
+	<string name="use_metric">Use Metric Size for Needles</string>
+	<string name="metric_summary">Use metric knitting needle sizes instead of US sizes.</string>
+
+
+        <string-array name="size_array">
+        <item>US 00 / 1.75</item>
+        <item>US 0 / 2</item>
+        <item>US 1 / 2.25 </item>
+        <item>US 1.5 / 2.5</item>
+        <item>US 2 / 2.75</item>
+        <item>US 2.5 / 3</item>
+        <item>US 3 / 3.25</item>
+        <item>US 4 / 3.5 </item>
+        <item>US 5 / 3.75</item>
+        <item>US 6 / 4 </item>
+        <item>US 7 / 4.5</item>
+        <item>US 8 / 5 </item>
+        <item>US 9 / 5.5</item>
+        <item>US 10 / 6 </item>
+        <item>US 10.5 / 6.6</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>US 11 / 8 </item>
+        <item>US 13 / 9 </item>
+        <item>US 15 / 10 </item>
+        <item>US 17 / 12.75 </item>
+        <item>US 19 / 15 </item>
+        <item>US 35 / 19 </item>
+        <item>US 50 / 25</item>
+    </string-array>
+        <string-array name="us_size_array">
+        <item>US 00</item>
+        <item>US 0</item>
+        <item>US 1</item>
+        <item>US 1.5</item>
+        <item>US 2</item>
+        <item>US 2.5</item>
+        <item>US 3</item>
+        <item>US 4</item>
+        <item>US 5</item>
+        <item>US 6</item>
+        <item>US 7</item>
+        <item>US 8</item>
+        <item>US 9</item>
+        <item>US 10</item>
+        <item>US 10.5</item>
+        <item>7mm</item>
+        <item>7.5mm</item>
+        <item>US 11</item>
+        <item>US 13</item>
+        <item>US 15</item>
+        <item>US 17</item>
+        <item>US 19</item>
+        <item>US 35</item>
+        <item>US 50</item>
+    </string-array>    
+        <string-array name="metric_size_array">
+        <item>1.75mm</item>
+        <item>2mm</item>
+        <item>2.25mm </item>
+        <item>2.5mm</item>
+        <item>2.75mm</item>
+        <item>3mm</item>
+        <item>3.25mm</item>
+        <item>3.5mm</item>
+        <item>3.75mm</item>
+        <item>4mm </item>
+        <item>4.5mm</item>
+        <item>5mm </item>
+        <item>5.5mm</item>
+        <item>6mm </item>
+        <item>6.6mm</item>
+        <item>7mm</item>
+        <item>7.5mm</item>
+        <item>8mm </item>
+        <item>9mm </item>
+        <item>10mm </item>
+        <item>12.75mm </item>
+        <item>15mm </item>
+        <item>19mm </item>
+        <item>25mm </item>
+    </string-array>
+        <string-array name="needle_size_options">
+        <item>US and Metric sizes</item>
+        <item>US sizes only</item>
+        <item>Metric sizes only</item>
+        </string-array>
+        <string-array name="needle_size_vals">
+        <item>both</item>
+        <item>us</item>
+        <item>metric</item>
+        </string-array>
+         
+        <string-array name="hook_array">
+        <item>1.75</item>
+        <item>2</item>
+        <item>B / 2.25 </item>
+        <item>2.5</item>
+        <item>C / 2.75</item>
+        <item>3</item>
+        <item>D / 3.25</item>
+        <item>E / 3.5 </item>
+        <item>F / 3.75</item>
+        <item>G / 4 </item>
+        <item>4.5</item>
+        <item>H / 5 </item>
+        <item>I / 5.5</item>
+        <item>J / 6 </item>
+        <item>K / 6.6</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>L / 8 </item>
+        <item>M/N / 9 </item>
+        <item>N/P / 10 </item>
+        <item>12.75 </item>
+        <item>P/Q / 15 </item>
+        <item>S / 19 </item>
+        <item>25</item>
+    </string-array>
+
+    <string-array name="length_array">
+    	<item>6"</item>
+    	<item>8"</item>
+    	<item>10"</item>
+    	<item>12"</item>
+        <item>14"</item>
+        <item>16"</item>
+        <item>20"</item>
+        <item>24"</item>        
+        <item>29"</item>
+        <item>32"</item>        
+        <item>40"</item>
+        <item>47"</item>
+        <item>60"</item>
+    </string-array>
+    
+    <string-array name="status_array">
+    	<item>In Queue</item>
+        <item>In Progress</item>
+        <item>Finished</item>
+    </string-array>
+        
+    <string-array name="length_array_dpns">
+        <item>4\"</item>
+        <item>5\"</item>
+        <item>6\"</item>
+        <item>8\"</item>
+    </string-array>
+    
+    <string-array name="length_array_straight">
+        <item>8\"</item>
+        <item>10\"</item>
+        <item>12\"</item>
+        <item>14\"</item>
+    </string-array>
+    
+    <string-array name="length_array_circ">
+        <item>12\"</item>
+        <item>16\"</item>
+        <item>20\"</item>
+        <item>24\"</item>
+        <item>29\"</item>
+        <item>32\"</item>
+        <item>40\"</item>
+        <item>47\"</item>
+        <item>60\"</item>
+    </string-array>
+    
+        <!-- EULA -->
+    <string name="eula_title">License agreement</string>
+    <string name="eula_accept">Accept</string>
+    <string name="eula_refuse">Don't accept</string>
+
+    <string name="disclaimer_title">Disclaimer</string>    
+    <string name="disclaimer_accept">Accept</string>
+    
+</resources>
