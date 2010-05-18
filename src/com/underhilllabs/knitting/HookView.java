@@ -1,6 +1,8 @@
 package com.underhilllabs.knitting;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class HookView extends Activity {
 	private DbAdapter hdb;
 	private long rowid;
 	private Cursor cur;
+	private AlertDialog alertDialog;
 	private static final int HOME_ID = Menu.FIRST+2;
 	private static final int EDIT_ID = Menu.FIRST;
 	private static final int DEL_ID = Menu.FIRST+1;
@@ -64,9 +67,7 @@ public class HookView extends Activity {
             startActivity(i);
             return true;
         case DEL_ID:
-			hdb.deleteHook(rowid);
-        	Intent i2 = new Intent(this, HookListView.class);
-        	startActivity(i2);
+			deleteNeedle(rowid);
         	return true;
         case HOME_ID:
 			Intent i3 = new Intent(this, KnittingStashHome.class);
@@ -85,5 +86,28 @@ public class HookView extends Activity {
         size.setText(cur.getString(1));
         
     }
+    public boolean deleteNeedle(long nid) {
+        alertDialog = new AlertDialog.Builder(HookView.this).create();
+        alertDialog.setTitle("Delete Hook");
+        alertDialog.setMessage("Are you sure you want to delete this hook?");
+        final Long needleId = nid;
+        //alertDialog.setIcon(R.drawable.search);
+        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+      		hdb.deleteHook(needleId);
+      		Intent i2 = new Intent(HookView.this, HookListView.class);
+        	startActivity(i2);
+    		//fill_data("KEY_SIZE_I");    			
+            return;
+        } }); 
+        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            return;
+        }}); 
+        alertDialog.show();
+
+    	return true;
+    }
+
 	
 }

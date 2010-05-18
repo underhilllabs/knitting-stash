@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -42,6 +44,8 @@ public class ProjectView extends Activity {
 	private String status;
 	private String lastmod;
 	private int status_i;
+	private AlertDialog alertDialog;
+
 	
 	private static final int HOME_ID = Menu.FIRST+2;
 	private static final int EDIT_ID = Menu.FIRST;
@@ -141,9 +145,9 @@ public class ProjectView extends Activity {
             startActivity(i);
             return true;
         case DEL_ID:
-			pdb.deleteProject(rowid);
-        	Intent i2 = new Intent(this, ProjectListView.class);
-        	startActivity(i2);
+			deleteProject(rowid);
+        	//Intent i2 = new Intent(this, ProjectListView.class);
+        	//startActivity(i2);
         	return true;
         case HOME_ID:
 			Intent i3 = new Intent(this, KnittingStashHome.class);
@@ -199,5 +203,28 @@ public class ProjectView extends Activity {
     	  }
     	}
  	
+    }
+    
+    public boolean deleteProject(long nid) {
+        alertDialog = new AlertDialog.Builder(ProjectView.this).create();
+        alertDialog.setTitle("Delete Project");
+        alertDialog.setMessage("Are you sure you want to delete this project?");
+        final Long needleId = nid;
+        //alertDialog.setIcon(R.drawable.search);
+        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+      		pdb.deleteProject(needleId);
+      		Intent i2 = new Intent(ProjectView.this, ProjectListView.class);
+        	startActivity(i2);
+    		//fill_data("KEY_SIZE_I");    			
+            return;
+        } }); 
+        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            return;
+        }}); 
+        alertDialog.show();
+
+    	return true;
     }
 }

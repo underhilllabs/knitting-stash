@@ -1,7 +1,9 @@
 package com.underhilllabs.knitting;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -38,6 +40,7 @@ public class NeedleListView extends ListActivity {
     private Resources r;
     private String[] size_array;
     public static final String PREF_SIZE_OPTION = "NEEDLE_SIZE_OPTION";
+    private AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -200,11 +203,32 @@ public class NeedleListView extends ListActivity {
 	        startActivity(i2);
 			return true;
 		case DELETE_ID:
-    			ndb.deleteNeedle(info.id);
-    			fill_data("KEY_SIZE_I");
+    			deleteNeedle(info.id);
     			return true;
-    		default:
-    			return super.onContextItemSelected(item);
+    	default:
+    		return super.onContextItemSelected(item);
     	}
     }
+    public boolean deleteNeedle(long nid) {
+        alertDialog = new AlertDialog.Builder(NeedleListView.this).create();
+        alertDialog.setTitle("Delete Needle");
+        alertDialog.setMessage("Are you sure you want to delete this needle?");
+        final Long needleId = nid;
+        //alertDialog.setIcon(R.drawable.search);
+        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+      		ndb.deleteNeedle(needleId);
+    		fill_data("KEY_SIZE_I");    			
+            return;
+        } }); 
+        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            return;
+        }}); 
+        alertDialog.show();
+
+    	return true;
+    }
+    
+    
 }

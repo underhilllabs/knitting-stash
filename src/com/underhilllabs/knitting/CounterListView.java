@@ -1,6 +1,8 @@
 package com.underhilllabs.knitting;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,7 +14,6 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -26,7 +27,7 @@ public class CounterListView extends ListActivity {
     private static final int EDIT_ID = Menu.FIRST + 1;
     private static final int DELETE_ID = Menu.FIRST + 2;
     private static final int PREFS_ID = Menu.FIRST + 3;
-    
+    private AlertDialog alertDialog;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -113,11 +114,32 @@ public class CounterListView extends ListActivity {
 	        startActivity(i2);
 			return true;
     	case DELETE_ID:
-    			pdb.deleteCounter(info.id);
-    			fill_data();
+    			deleteCounter(info.id);
+    			//fill_data();
     			return true;
     		default:
     			return super.onContextItemSelected(item);
     	}
     }
+    public boolean deleteCounter(long nid) {
+        alertDialog = new AlertDialog.Builder(CounterListView.this).create();
+        alertDialog.setTitle("Delete Counter");
+        alertDialog.setMessage("Are you sure you want to Delete this counter?");
+        final Long needleId = nid;
+        //alertDialog.setIcon(R.drawable.search);
+        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+      		pdb.deleteCounter(needleId);
+    		fill_data();    			
+            return;
+        } }); 
+        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            return;
+        }}); 
+        alertDialog.show();
+
+    	return true;
+    }
+    
 }

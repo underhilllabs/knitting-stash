@@ -1,6 +1,8 @@
 package com.underhilllabs.knitting;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -16,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -33,6 +34,7 @@ public class ProjectListView extends ListActivity {
     private static final int ALL_ID =  Menu.FIRST + 5;
     private static final int SHOP_ID =  Menu.FIRST + 6;
     
+    private AlertDialog alertDialog;
     private Cursor cur;
     private Resources r;
     //private String selectedWord;
@@ -304,11 +306,32 @@ public class ProjectListView extends ListActivity {
 	        startActivity(i2);
 			return true;
     	case DELETE_ID:
-    			pdb.deleteProject(info.id);
-    			fill_data();
+    			deleteProject(info.id);
+    			//fill_data();
     			return true;
     		default:
     			return super.onContextItemSelected(item);
     	}
     }
+    public boolean deleteProject(long nid) {
+        alertDialog = new AlertDialog.Builder(ProjectListView.this).create();
+        alertDialog.setTitle("Delete Project");
+        alertDialog.setMessage("Are you sure you want to delete this project?");
+        final Long needleId = nid;
+        //alertDialog.setIcon(R.drawable.search);
+        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+      		pdb.deleteProject(needleId);
+    		fill_data();    			
+            return;
+        } }); 
+        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            return;
+        }}); 
+        alertDialog.show();
+
+    	return true;
+    }
+    
 }

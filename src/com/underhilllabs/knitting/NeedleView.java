@@ -1,7 +1,9 @@
 package com.underhilllabs.knitting;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -25,6 +27,7 @@ public class NeedleView extends Activity {
 	private long rowid;
 	private Cursor cur;
 	private int in_use;
+	private AlertDialog alertDialog;
 	private static final int EDIT_ID = Menu.FIRST;
 	private static final int DEL_ID = Menu.FIRST+1;
 	private static final int HOME_ID = Menu.FIRST+2;
@@ -88,9 +91,7 @@ public class NeedleView extends Activity {
             startActivity(i);
             return true;
         case DEL_ID:
-			ndb.deleteNeedle(rowid);
-        	Intent i2 = new Intent(this, NeedleListView.class);
-        	startActivity(i2);
+			deleteNeedle(rowid);
         	return true;
         case HOME_ID:
         	Intent i3 = new Intent(this, KnittingStashHome.class);
@@ -121,6 +122,28 @@ public class NeedleView extends Activity {
         	tv_in_use.setText("In Use");
         	
         }
+    }
+    public boolean deleteNeedle(long nid) {
+        alertDialog = new AlertDialog.Builder(NeedleView.this).create();
+        alertDialog.setTitle("Delete Needle");
+        alertDialog.setMessage("Are you sure you want to Delete this needle?");
+        final Long needleId = nid;
+        //alertDialog.setIcon(R.drawable.search);
+        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+      		ndb.deleteNeedle(needleId);
+      		Intent i2 = new Intent(NeedleView.this, NeedleListView.class);
+        	startActivity(i2);
+    		//fill_data("KEY_SIZE_I");    			
+            return;
+        } }); 
+        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            return;
+        }}); 
+        alertDialog.show();
+
+    	return true;
     }
 	
 }
