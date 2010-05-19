@@ -214,7 +214,8 @@ public class ProjectView extends Activity {
         alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int which) {
       		pdb.deleteProject(needleId);
-      		Intent i2 = new Intent(ProjectView.this, ProjectListView.class);
+      		Intent i2 = new Intent(ProjectView.this, KnittingStashHome.class);
+      		i2.putExtra("com.underhilllabs.knitting.tabid",2);
         	startActivity(i2);
     		//fill_data("KEY_SIZE_I");    			
             return;

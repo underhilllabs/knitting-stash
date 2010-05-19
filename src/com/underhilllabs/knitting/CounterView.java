@@ -161,7 +161,8 @@ public class CounterView extends Activity {
         alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int which) {
       		pdb.deleteCounter(needleId);
-      		Intent i2 = new Intent(CounterView.this, CounterListView.class);
+      		Intent i2 = new Intent(CounterView.this, KnittingStashHome.class);
+      		i2.putExtra("com.underhilllabs.knitting.tabid",3);
         	startActivity(i2);
     		//fill_data("KEY_SIZE_I");    			
             return;

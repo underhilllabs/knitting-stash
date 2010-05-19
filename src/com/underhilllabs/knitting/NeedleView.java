@@ -132,7 +132,8 @@ public class NeedleView extends Activity {
         alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int which) {
       		ndb.deleteNeedle(needleId);
-      		Intent i2 = new Intent(NeedleView.this, NeedleListView.class);
+      		Intent i2 = new Intent(NeedleView.this, KnittingStashHome.class);
+            i2.putExtra("com.underhilllabs.knitting.tabid",0);
         	startActivity(i2);
     		//fill_data("KEY_SIZE_I");    			
             return;

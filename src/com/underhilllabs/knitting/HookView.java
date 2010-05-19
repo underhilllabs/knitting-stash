@@ -95,7 +95,9 @@ public class HookView extends Activity {
         alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int which) {
       		hdb.deleteHook(needleId);
-      		Intent i2 = new Intent(HookView.this, HookListView.class);
+      		//Intent i2 = new Intent(HookView.this, HookListView.class);
+            Intent i2 = new Intent(HookView.this,KnittingStashHome.class);
+            i2.putExtra("com.underhilllabs.knitting.tabid",1);
         	startActivity(i2);
     		//fill_data("KEY_SIZE_I");    			
             return;
