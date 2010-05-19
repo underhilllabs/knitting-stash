@@ -1,2 +1,4 @@
 # ignore *.class files
+bin/
+gen/
 *.class
