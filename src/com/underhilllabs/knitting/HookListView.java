@@ -140,21 +140,26 @@ public class HookListView extends ListActivity {
     	}
     }
     public boolean deleteNeedle(long nid) {
-        alertDialog = new AlertDialog.Builder(HookListView.this).create();
-        alertDialog.setTitle("Delete Hook");
-        alertDialog.setMessage("Are you sure you want to delete this hook?");
-        final Long needleId = nid;
-        //alertDialog.setIcon(R.drawable.search);
-        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-      		hdb.deleteHook(needleId);
-    		fill_data("KEY_SIZE_I");    			
-            return;
-        } }); 
-        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-            return;
-        }}); 
+    	final Long needleId = nid;
+    	AlertDialog.Builder builder = new AlertDialog.Builder(HookListView.this);
+        builder.setTitle(R.string.delete_dialog_title_hook)
+        	.setMessage(R.string.delete_dialog_text_hook)
+        	.setPositiveButton(R.string.dialog_button_delete, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+              		hdb.deleteHook(needleId);
+              		//Intent i2 = new Intent(HookView.this, HookListView.class);
+                    Intent i2 = new Intent(HookListView.this,KnittingStashHome.class);
+                    i2.putExtra("com.underhilllabs.knitting.tabid",1);
+                	startActivity(i2);
+            		//fill_data("KEY_SIZE_I");    			
+                    return;
+                } })
+             .setNegativeButton(R.string.dialog_button_cancel, new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                     return;
+                 }});
+
+        alertDialog = builder.create();
         alertDialog.show();
 
     	return true;

@@ -153,25 +153,27 @@ public class CounterView extends Activity {
 			
     }
     public boolean deleteCounter(long nid) {
-        alertDialog = new AlertDialog.Builder(CounterView.this).create();
-        alertDialog.setTitle("Delete Counter");
-        alertDialog.setMessage("Are you sure you want to delete this counter?");
-        final Long needleId = nid;
-        //alertDialog.setIcon(R.drawable.search);
-        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-      		pdb.deleteCounter(needleId);
-      		Intent i2 = new Intent(CounterView.this, KnittingStashHome.class);
-      		i2.putExtra("com.underhilllabs.knitting.tabid",3);
-        	startActivity(i2);
-    		//fill_data("KEY_SIZE_I");    			
-            return;
-        } }); 
-        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-            return;
-        }}); 
+    	final Long needleId = nid;
+    	AlertDialog.Builder builder = new AlertDialog.Builder(CounterView.this);
+        builder.setTitle(R.string.delete_dialog_title_counter)
+        	.setMessage(R.string.delete_dialog_text_counter)
+        	.setPositiveButton(R.string.dialog_button_delete, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+              		pdb.deleteCounter(needleId);
+              		//Intent i2 = new Intent(HookView.this, HookListView.class);
+                    Intent i2 = new Intent(CounterView.this,KnittingStashHome.class);
+                    i2.putExtra("com.underhilllabs.knitting.tabid",3);
+                	startActivity(i2);
+            		//fill_data("KEY_SIZE_I");    			
+                    return;
+                } })
+             .setNegativeButton(R.string.dialog_button_cancel, new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                     return;
+                 }});
+        alertDialog = builder.create();
         alertDialog.show();
+
 
     	return true;
     }

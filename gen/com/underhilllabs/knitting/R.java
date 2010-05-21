@@ -180,8 +180,18 @@ public final class R {
         public static final int counter_button=0x7f060018;
         public static final int crochet_button=0x7f060016;
         public static final int del_app_name=0x7f060015;
-        public static final int disclaimer_accept=0x7f06003d;
-        public static final int disclaimer_title=0x7f06003c;
+        public static final int delete_dialog_text_counter=0x7f06003e;
+        public static final int delete_dialog_text_hook=0x7f06003a;
+        public static final int delete_dialog_text_needle=0x7f06003c;
+        public static final int delete_dialog_text_project=0x7f060040;
+        public static final int delete_dialog_title_counter=0x7f06003d;
+        public static final int delete_dialog_title_hook=0x7f060039;
+        public static final int delete_dialog_title_needle=0x7f06003b;
+        public static final int delete_dialog_title_project=0x7f06003f;
+        public static final int dialog_button_cancel=0x7f060042;
+        public static final int dialog_button_delete=0x7f060041;
+        public static final int disclaimer_accept=0x7f060047;
+        public static final int disclaimer_title=0x7f060046;
         public static final int dpns=0x7f06002b;
         public static final int edit_app_name=0x7f060008;
         public static final int edit_counter_app_name=0x7f060014;
@@ -189,11 +199,11 @@ public final class R {
         public static final int edit_project_app_name=0x7f060010;
         public static final int editformtop=0x7f06002e;
         public static final int empty_list=0x7f060025;
-        public static final int eula_accept=0x7f06003a;
-        public static final int eula_refuse=0x7f06003b;
+        public static final int eula_accept=0x7f060044;
+        public static final int eula_refuse=0x7f060045;
         /**  EULA 
          */
-        public static final int eula_title=0x7f060039;
+        public static final int eula_title=0x7f060043;
         public static final int hello=0x7f060000;
         public static final int home_app_name=0x7f060003;
         public static final int home_app_name_beta=0x7f060004;

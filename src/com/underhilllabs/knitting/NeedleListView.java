@@ -210,21 +210,27 @@ public class NeedleListView extends ListActivity {
     	}
     }
     public boolean deleteNeedle(long nid) {
-        alertDialog = new AlertDialog.Builder(NeedleListView.this).create();
-        alertDialog.setTitle("Delete Needle");
-        alertDialog.setMessage("Are you sure you want to delete this needle?");
-        final Long needleId = nid;
-        //alertDialog.setIcon(R.drawable.search);
-        alertDialog.setButton("Delete", new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-      		ndb.deleteNeedle(needleId);
-    		fill_data("KEY_SIZE_I");    			
-            return;
-        } }); 
-        alertDialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-            return;
-        }}); 
+    	final Long needleId = nid;
+    	AlertDialog.Builder builder = new AlertDialog.Builder(NeedleListView.this);
+        builder.setTitle(R.string.delete_dialog_title_needle)
+        	.setMessage(R.string.delete_dialog_text_needle)
+        	.setPositiveButton(R.string.dialog_button_delete, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+              		ndb.deleteNeedle(needleId);
+              		//Intent i2 = new Intent(HookView.this, HookListView.class);
+                    Intent i2 = new Intent(NeedleListView.this,KnittingStashHome.class);
+                    i2.putExtra("com.underhilllabs.knitting.tabid",0);
+                	startActivity(i2);
+            		//fill_data("KEY_SIZE_I");    			
+                    return;
+                } })
+             .setNegativeButton(R.string.dialog_button_cancel, new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                     return;
+                 }});
+
+
+        alertDialog = builder.create();
         alertDialog.show();
 
     	return true;
