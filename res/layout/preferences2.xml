@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     >
 <TextView  
-    android:text="Set Knitting Stash Preferences"
+    android:text="@string/preferences_title"
     style="@style/FormTop"
     />
 <TextView  
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
-    android:text="Set Needle Size Preferences:"
+    android:text="@string/preferences_needle_size_label"
     />
 <CheckBox
 	  android:id="@+id/cb_metric"
@@ -32,7 +32,7 @@
 	android:id="@+id/update_button"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="Update Preferences"
+    android:text="@string/preferences_button"
     />
     
 

@@ -47,13 +47,25 @@
     <string name="shopping_desc">Shopping needed: </string>
     <string name="empty_list">No needles found in stash.  Add with the menu button.</string>
     <string name="project_top_form">Create New Project</string>
+
     <string name="wood">wood</string>
     <string name="bamboo">bamboo</string>
     <string name="steel">steel</string>
+    <string name="plastic">plastic</string>
+	<string name="metal">metal</string>
+        
+    <string name="Wood">Wood</string>
+    <string name="Bamboo">Bamboo</string>
+    <string name="Steel">Steel</string>
+    <string name="Plastic">Plastic</string>
+    <string name="Metal">Metal</string>
 
     <string name="circular">circular</string>
     <string name="dpns">dpns</string>
     <string name="straight">straight</string>
+    <string name="Circular">Circular</string>
+    <string name="DPNs">DPNs</string>
+    <string name="Straight">Straight</string>
 
     <string name="addformtop">Add Knitting Needle to Inventory</string>
     <string name="editformtop">Edit Knitting Needle</string>
@@ -79,6 +91,46 @@
 
 	<string name="dialog_button_delete">Delete</string>
 	<string name="dialog_button_cancel">Cancel</string>
+
+	<string name="counter_add_title">Create a new Counter</string>
+	<string name="counter_edit_title">Edit Counter</string>
+	<string name="counter_view_title">View Counter</string>
+	<string name="counter_name_label">Counter Name</string>
+	<string name="counter_value_label">Counter Value</string>
+	
+	<string name="notes_label">Notes:</string>
+	<string name="mode_label">Mode:</string>	
+	<string name="counter_add_button">Create Counter</string>
+	<string name="counter_list_empty">No counters available.  Press menu to create one.</string>
+	<string name="counter_update_button">Update Counter</string>
+	<string name="counter_edit_button">Update Counter</string>
+	
+	<string name="hook_add_title">Create a new Hook</string>
+	<string name="hook_name_label">Hook Name</string>
+	<string name="hook_add_button">Create Hook</string>
+
+	<string name="needle_add_title">Create a new Needle</string>
+	<string name="needle_name_label">Needle Name</string>
+	<string name="needle_add_button">Create Needle</string>
+	<string name="hook_view_title">Crochet Hook Detail</string>
+	
+	<string name="project_add_title">Create a new Project</string>
+	<string name="project_name_label">Project Name</string>
+	<string name="project_status_label">Project Status:</string>
+	<string name="project_photo_label">Project Photo:</string>
+	<string name="project_update_photo_button">Update Photo</string>
+	<string name="project_shopping_label">Shopping Needed:</string>
+	<string name="project_add_button">Create Project</string>
+	<string name="project_list_empty">No projects available.  Press menu to create one.</string>
+	<string name="hook_list_empty">No hooks in stash, press menu to add some.</string>
+	<string name="project_edit_title">Project Details</string>
+	<string name="project_edit_button">Update Project</string>
+
+	<string name="needles_in_use">Are the Needles in Use?</string>
+	<string name="preferences_title">Set Knitting Stash Preferences</string>
+	<string name="preferences_needle_size_label">Set Needle Size Preferences:</string>
+	<string name="preferences_button">Update Preferences</string>
+
 
         <string-array name="size_array">
         <item>US 00 / 1.75</item>

@@ -40,15 +40,15 @@
       <RadioButton android:id="@+id/radio_circular"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Circular" />
+          android:text="@string/Circular" />
       <RadioButton android:id="@+id/radio_dpns"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="DPNs" />
+          android:text="@string/DPNs" />
       <RadioButton android:id="@+id/radio_straight"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Straight" />
+          android:text="@string/Straight" />
     </RadioGroup>
 <TextView  
     android:layout_width="fill_parent" 
@@ -64,19 +64,19 @@
       <RadioButton android:id="@+id/radio_bamboo"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Bamboo" />
+          android:text="@string/Bamboo" />
       <RadioButton android:id="@+id/radio_wood"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Wood" />
+          android:text="@string/Wood" />
       <RadioButton android:id="@+id/radio_steel"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Steel" />
+          android:text="@string/Steel" />
      <RadioButton android:id="@+id/radio_plastic"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Plastic" />
+          android:text="@string/Plastic" />
     </RadioGroup>
 <TextView  
     android:layout_width="fill_parent" 
@@ -94,7 +94,7 @@
     <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="Are the Needles in Use?"
+    android:text="@string/needles_in_use"
     />
 	<CheckBox
 		android:id="@+id/cb_in_use"

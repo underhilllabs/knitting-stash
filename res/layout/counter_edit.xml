@@ -13,13 +13,13 @@
 <TextView  
 	android:id="@+id/top_label" 
 	style="@style/FormTop"
-    android:text="Edit Counter"
+    android:text="@string/counter_edit_title"
     />
 <TextView
 android:id="@+id/name_label"    
     android:layout_width="100dip" 
     android:layout_height="wrap_content" 
-    android:text="Counter Name"
+    android:text="@string/counter_name_label"
     android:layout_below="@id/top_label"
     android:layout_marginBottom="10px"
 	
@@ -36,7 +36,7 @@ android:id="@+id/name_label"
 android:id="@+id/curval_label"    
     android:layout_width="100dip" 
     android:layout_height="wrap_content" 
-    android:text="Counter Value"
+    android:text="@string/counter_value_label"
     android:layout_below="@id/name"
     android:layout_marginBottom="10px"
 	
@@ -71,7 +71,7 @@ android:id="@+id/curval_label"
     android:layout_height="wrap_content" 
     android:layout_below="@id/notes"
     
-    android:text="Update Counter"
+    android:text="@string/counter_edit_button"
     />
     
 

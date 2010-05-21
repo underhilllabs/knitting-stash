@@ -13,6 +13,6 @@
     <TextView android:id="@id/android:empty"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="No counters available.  Press menu to create one."
+         android:text="@string/counter_list_empty"
     />
 </LinearLayout>

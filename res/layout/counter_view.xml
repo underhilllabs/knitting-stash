@@ -13,7 +13,7 @@ style="@style/FormTop"
 	android:layout_height="wrap_content"
 	android:layout_below="@+id/name"
 	android:textStyle="italic"
-	android:text="Notes: "
+	android:text="@string/notes_label"
 />
 
 <TextView
@@ -36,7 +36,7 @@ style="@style/FormTop"
 	android:layout_height="wrap_content"
 	android:layout_below="@+id/counter_button"
 	android:textStyle="italic"
-	android:text="Mode: "
+	android:text="@string/mode_label"
 />
 
 <TextView

@@ -44,30 +44,30 @@
       <RadioButton android:id="@+id/radio_bamboo"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Bamboo" />
+          android:text="@string/Bamboo" />
       <RadioButton android:id="@+id/radio_wood"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Wood" />
+          android:text="@string/Wood" />
       <RadioButton android:id="@+id/radio_steel"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Steel" />
+          android:text="@string/Steel" />
       <RadioButton android:id="@+id/radio_plastic"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Plastic" />
+          android:text="@string/Plastic" />
       <RadioButton android:id="@+id/radio_metal"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Metal" />
+          android:text="@string/Metal" />
     </RadioGroup>
 
 <Button  
 	android:id="@+id/add_hook_button"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="Add Hook"
+    android:text="@string/hook_add_button"
     />
     
 
