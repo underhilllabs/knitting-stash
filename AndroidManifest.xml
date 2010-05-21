@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.underhilllabs.knitting" android:versionCode="10" android:versionName="1.0">
+      package="com.underhilllabs.knitting" android:versionCode="11" android:versionName="1.1">
     <application android:icon="@drawable/knit10" android:theme="@android:style/Theme" android:label="@string/home_app_name">
 
     		<activity android:name=".KnittingStashHome"
