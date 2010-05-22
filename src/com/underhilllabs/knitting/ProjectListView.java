@@ -143,7 +143,7 @@ public class ProjectListView extends ListActivity {
 		          Log.d("KnittingStash","in custom view binder");
 		          TextView tv = (TextView) view;
 		          String nShopping = (cursor.getString(nCheckedIndex));
-		          if (nShopping.length() > 0) {
+		          if (nShopping!=null && nShopping.length() > 0) {
 		        	  //tv.setTextColor(Color.BLACK);
 		        	  tv.setBackgroundColor(Color.rgb(0, 134, 100));
 		        	  //tv.setBackgroundColor(r.getColor(R.color.green));
@@ -201,7 +201,7 @@ public class ProjectListView extends ListActivity {
 		          Log.d("KnittingStash","in custom view binder");
 		          TextView tv = (TextView) view;
 		          String nShopping = (cursor.getString(nCheckedIndex));
-		          if (nShopping.length() > 0) {
+		          if (nShopping!=null && nShopping.length() > 0) {
 		        	  //tv.setTextColor(Color.BLACK);
 		        	  tv.setBackgroundColor(Color.rgb(0, 134, 100));
 		        	  //tv.setBackgroundColor(r.getColor(R.color.green));
