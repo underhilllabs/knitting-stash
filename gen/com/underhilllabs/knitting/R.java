@@ -207,8 +207,8 @@ public final class R {
         public static final int delete_dialog_title_project=0x7f060049;
         public static final int dialog_button_cancel=0x7f06004c;
         public static final int dialog_button_delete=0x7f06004b;
-        public static final int disclaimer_accept=0x7f060072;
-        public static final int disclaimer_title=0x7f060071;
+        public static final int disclaimer_accept=0x7f060081;
+        public static final int disclaimer_title=0x7f060080;
         public static final int dpns=0x7f060032;
         public static final int edit_app_name=0x7f060008;
         public static final int edit_counter_app_name=0x7f060014;
@@ -216,11 +216,11 @@ public final class R {
         public static final int edit_project_app_name=0x7f060010;
         public static final int editformtop=0x7f060038;
         public static final int empty_list=0x7f060025;
-        public static final int eula_accept=0x7f06006f;
-        public static final int eula_refuse=0x7f060070;
+        public static final int eula_accept=0x7f06007e;
+        public static final int eula_refuse=0x7f06007f;
         /**  EULA 
          */
-        public static final int eula_title=0x7f06006e;
+        public static final int eula_title=0x7f06007d;
         public static final int hello=0x7f060000;
         public static final int home_app_name=0x7f060003;
         public static final int home_app_name_beta=0x7f060004;
@@ -236,9 +236,24 @@ public final class R {
         public static final int list_hook_app_name=0x7f060009;
         public static final int list_project_app_name=0x7f06000d;
         public static final int material=0x7f06001d;
-        public static final int menu_add=0x7f06003f;
+        public static final int menu_add=0x7f060072;
         public static final int menu_add_hook=0x7f06001b;
+        public static final int menu_add_needle=0x7f06003f;
         public static final int menu_add_project=0x7f060040;
+        public static final int menu_all_projects=0x7f06007b;
+        public static final int menu_counter=0x7f060078;
+        public static final int menu_delete=0x7f060071;
+        public static final int menu_edit=0x7f060070;
+        public static final int menu_home=0x7f060079;
+        public static final int menu_hook=0x7f060077;
+        public static final int menu_in_use=0x7f060074;
+        public static final int menu_needle=0x7f060075;
+        public static final int menu_preferences=0x7f06006e;
+        public static final int menu_project=0x7f060076;
+        public static final int menu_shopping=0x7f06007a;
+        public static final int menu_unfinished_projects=0x7f06007c;
+        public static final int menu_update=0x7f060073;
+        public static final int menu_view=0x7f06006f;
         public static final int metal=0x7f06002b;
         public static final int metric_summary=0x7f060042;
         public static final int mode_label=0x7f060053;

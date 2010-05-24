@@ -105,7 +105,7 @@ public class NeedleListView extends ListActivity {
 		        	  tv.setBackgroundColor(r.getColor(R.color.green));
 		        	  
 		        	  tv.setPadding(5, 0, 5, 0);
-		        	  tv.setText("In Use");
+		        	  tv.setText(R.string.menu_in_use);	
 		          } else {
 		        	  tv.setPadding(0, 0, 0, 0);
 		        	  tv.setBackgroundColor(Color.BLACK);
@@ -143,14 +143,14 @@ public class NeedleListView extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        MenuItem addm = menu.add(0, INSERT_ID, 0, R.string.menu_add);
+        MenuItem addm = menu.add(0, INSERT_ID, 0, R.string.menu_add_needle);
         MenuItem sorts = menu.add(0, SORT_SIZE, 1, R.string.sort_size);
         MenuItem sortt = menu.add(0, SORT_TYPE, 2, R.string.sort_type);
         MenuItem sorti = menu.add(0, SORT_IN_USE, 3, R.string.sort_in_use);
         addm.setIcon(android.R.drawable.ic_menu_add);
         sorts.setIcon(android.R.drawable.ic_menu_sort_by_size);
         sortt.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
-        MenuItem homem = menu.add(0, PREFS_ID, 0, "Preferences");
+        MenuItem homem = menu.add(0, PREFS_ID, 0, R.string.menu_preferences);
         homem.setIcon(android.R.drawable.ic_menu_preferences);
         return result;
     }
@@ -182,9 +182,9 @@ public class NeedleListView extends ListActivity {
     public void onCreateContextMenu(ContextMenu menu, View v,
             ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
-    	menu.add(0, VIEW_ID, 0, "View");
-    	menu.add(0, EDIT_ID, 0, "Edit");
-    	menu.add(0, DELETE_ID,0,  "Delete");
+    	menu.add(0, VIEW_ID, 0, R.string.menu_view);
+    	menu.add(0, EDIT_ID, 0, R.string.menu_edit);
+    	menu.add(0, DELETE_ID,0,  R.string.menu_delete);
     	//edit_item.setIcon(android.R.drawable.ic_menu_edit); 
     	//del_item.setIcon(android.R.drawable.ic_menu_delete);
     }

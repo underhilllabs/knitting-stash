@@ -75,7 +75,7 @@
     <string name="update_hook">Update Hook</string>
     <string name="update_project">Update Project</string>
     <string name="update_counter">Update Counter</string>
-    <string name="menu_add">Add Needle</string>
+    <string name="menu_add_needle">Add Needle</string>
     <string name="menu_add_project">Add Project</string>
 	<string name="use_metric">Use Metric Size for Needles</string>
 	<string name="metric_summary">Use metric knitting needle sizes instead of US sizes.</string>
@@ -131,7 +131,23 @@
 	<string name="preferences_needle_size_label">Set Needle Size Preferences:</string>
 	<string name="preferences_button">Update Preferences</string>
 
-
+	<string name="menu_preferences">Preferences</string>
+	<string name="menu_view">View </string>
+	<string name="menu_edit">Edit </string>
+	<string name="menu_delete">Delete </string>
+	<string name="menu_add">Add </string>
+	<string name="menu_update">Update </string>
+	<string name="menu_in_use">In Use</string>
+	<string name="menu_needle">Needle</string>
+	<string name="menu_project">Project</string>
+	<string name="menu_hook">Hook</string>
+	<string name="menu_counter">Counter</string>
+	<string name="menu_home">Home</string>
+	<string name="menu_shopping">Needed Shopping</string>
+	<string name="menu_all_projects">Show All Projects</string>
+	<string name="menu_unfinished_projects">Show Unfinished Projects</string>
+	
+	
         <string-array name="size_array">
         <item>US 00 / 1.75</item>
         <item>US 0 / 2</item>
@@ -299,7 +315,7 @@
         <!-- EULA -->
     <string name="eula_title">License agreement</string>
     <string name="eula_accept">Accept</string>
-    <string name="eula_refuse">Don't accept</string>
+    <string name="eula_refuse">Don\'t accept</string>
 
     <string name="disclaimer_title">Disclaimer</string>    
     <string name="disclaimer_accept">Accept</string>
