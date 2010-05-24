@@ -50,11 +50,11 @@ public class HookView extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        MenuItem editm = menu.add(0, EDIT_ID, 0, "Edit Hook");
+        MenuItem editm = menu.add(0, EDIT_ID, 0, R.string.menu_edit_hook);
         editm.setIcon(android.R.drawable.ic_menu_edit);
-        MenuItem delm = menu.add(0, DEL_ID, 0, "Delete Hook");
+        MenuItem delm = menu.add(0, DEL_ID, 0, R.string.menu_delete_hook);
         delm.setIcon(android.R.drawable.ic_menu_delete);
-        MenuItem homem = menu.add(0, HOME_ID, 0, "Home");
+        MenuItem homem = menu.add(0, HOME_ID, 0, R.string.menu_home);
         homem.setIcon(R.drawable.ic_menu_home);
         return result;
     }
@@ -81,7 +81,21 @@ public class HookView extends Activity {
     public void fill_data() {
     	cur = hdb.fetchHook(rowid);
         startManagingCursor(cur);
-        material.setText(cur.getString(3));
+        // need to display translation 
+        if (cur.getString(3).equals("wood")) {
+        	material.setText(R.string.wood);
+        } else if (cur.getString(3).equals("plastic")) {
+        	material.setText(R.string.plastic);
+        } else if (cur.getString(3).equals("metal")) {
+        	material.setText(R.string.metal);
+        } else if (cur.getString(3).equals("steel")) {
+        	material.setText(R.string.steel);
+        } else if (cur.getString(3).equals("bamboo")) {
+        	material.setText(R.string.bamboo);
+        } else {
+        	//material.setText(R.string.Steel);
+        }
+        //material.setText(cur.getString(3));
         notes.setText(cur.getString(4));
         size.setText(cur.getString(1));
         

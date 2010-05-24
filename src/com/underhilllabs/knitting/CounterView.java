@@ -43,7 +43,7 @@ public class CounterView extends Activity {
         tvNotes = (TextView) findViewById(R.id.notes);
         tvName = (TextView) findViewById(R.id.name);
         tvMode = (TextView) findViewById(R.id.mode_text);
-        tvMode.setText("increase");
+        tvMode.setText(R.string.increase);
         counter_button = (Button)findViewById(R.id.counter_button);
 
         // get rowid from Intent Bundle
@@ -74,17 +74,17 @@ public class CounterView extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        MenuItem editm = menu.add(0, EDIT_ID, 0, "Edit Counter");
+        MenuItem editm = menu.add(0, EDIT_ID, 0, R.string.menu_edit_counter);
         editm.setIcon(android.R.drawable.ic_menu_edit);
         // does it make sense to delete counter here?  
         //    No, just on long click
-        MenuItem delm = menu.add(0, DEL_ID, 0, "Delete Counter");
+        MenuItem delm = menu.add(0, DEL_ID, 0, R.string.menu_delete_counter);
         delm.setIcon(android.R.drawable.ic_menu_delete);
-        MenuItem homem = menu.add(0, HOME_ID, 0, "Home");
+        MenuItem homem = menu.add(0, HOME_ID, 0, R.string.menu_home);
         homem.setIcon(R.drawable.ic_menu_home);
-        togm = menu.add(0, TOGGLE_ID, 0, toggle_str);
+        togm = menu.add(0, TOGGLE_ID, 0, R.string.switch_dec);
         togm.setIcon(android.R.drawable.ic_menu_revert);
-        MenuItem resm = menu.add(0, RESET_ID, 0, "Reset Counter");
+        MenuItem resm = menu.add(0, RESET_ID, 0, R.string.menu_reset_counter);
         resm.setIcon(android.R.drawable.ic_menu_revert);
         
         return result;
@@ -95,15 +95,6 @@ public class CounterView extends Activity {
     	//boolean result = super.
     	pdb.setCounter(rowid,cur_val);
 	}	
-    /*
-    @Override
-    public void onResume(){
-    	//boolean result = super.
-    	Cursor cur = pdb.fetchCounter(rowid);
-    	cur_val = Integer.parseInt(cur.getString(2));
-    	counter_button.setText(""+cur_val);
-	}
-	*/
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -130,14 +121,14 @@ public class CounterView extends Activity {
         case TOGGLE_ID:
         	if(toggle_int==1) {
         		toggle_int = -1;
-        		toggle_str = "Switch to increment";
-        		tvMode.setText("decrease");
-        		togm.setTitle(toggle_str);
+        		toggle_str = "decrease";
+        		tvMode.setText(R.string.decrease);
+        		togm.setTitle(R.string.switch_inc);
         	} else {
         		toggle_int = 1;
-        		toggle_str = "Switch to decrement";
-        		tvMode.setText("increase");
-        		togm.setTitle(toggle_str);
+        		toggle_str = "increase";
+        		tvMode.setText(R.string.increase);
+        		togm.setTitle(R.string.switch_dec);
         	}
         }
         return super.onOptionsItemSelected(item);

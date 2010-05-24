@@ -46,7 +46,7 @@ public class CounterEditActivity extends Activity {
  				try {
  					cur_val = Integer.parseInt(curval.getEditableText().toString());
  				} catch (NumberFormatException e){
- 					Toast.makeText(CounterEditActivity.this, "Please enter a number.", Toast.LENGTH_LONG);
+ 					Toast.makeText(CounterEditActivity.this, R.string.please_enter_number, Toast.LENGTH_LONG);
  				}
                 int proj_id = 0;
                 String proj_name = "";

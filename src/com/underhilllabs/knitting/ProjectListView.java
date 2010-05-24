@@ -93,7 +93,7 @@ public class ProjectListView extends ListActivity {
 		        	  tv.setBackgroundColor(r.getColor(R.color.green));
 		        	  
 		        	  tv.setPadding(5, 0, 5, 0);
-		        	  tv.setText("Shopping: "+nShopping);
+		        	  tv.setText(getString(R.string.menu_shopping) + " " +nShopping);
 		          } else {
 		        	  tv.setPadding(0, 0, 0, 0);
 		        	  tv.setBackgroundColor(Color.BLACK);
@@ -149,7 +149,7 @@ public class ProjectListView extends ListActivity {
 		        	  //tv.setBackgroundColor(r.getColor(R.color.green));
 		        	  
 		        	  tv.setPadding(5, 0, 5, 0);
-		        	  tv.setText("Shopping: "+nShopping);
+		        	  tv.setText(getString(R.string.menu_shopping)+" "+nShopping);
 		          } else {
 		        	  tv.setPadding(0, 0, 0, 0);
 		        	  tv.setBackgroundColor(Color.BLACK);
@@ -207,7 +207,7 @@ public class ProjectListView extends ListActivity {
 		        	  //tv.setBackgroundColor(r.getColor(R.color.green));
 		        	  
 		        	  tv.setPadding(5, 0, 5, 0);
-		        	  tv.setText("Shopping: "+nShopping);
+		        	  tv.setText(getString(R.string.menu_shopping)+" "+nShopping);
 		          } else {
 		        	  tv.setPadding(0, 0, 0, 0);
 		        	  tv.setBackgroundColor(Color.BLACK);
@@ -246,11 +246,11 @@ public class ProjectListView extends ListActivity {
         boolean result = super.onCreateOptionsMenu(menu);
         MenuItem addm = menu.add(0, INSERT_ID, 0, R.string.menu_add_project);
         addm.setIcon(android.R.drawable.ic_menu_add);
-        MenuItem homem = menu.add(0, PREFS_ID, 0, "Preferences");
+        MenuItem homem = menu.add(0, PREFS_ID, 0, R.string.menu_preferences);
         homem.setIcon(android.R.drawable.ic_menu_preferences);
-        MenuItem allm = menu.add(0, ALL_ID, 0, "Show All Projects");
-        MenuItem wipm = menu.add(0, WIP_ID, 0, "Show Unfinished Projects");
-        MenuItem shopm = menu.add(0, SHOP_ID, 0, "Needed Shopping");
+        MenuItem allm = menu.add(0, ALL_ID, 0, R.string.menu_all_projects);
+        MenuItem wipm = menu.add(0, WIP_ID, 0, R.string.menu_unfinished_projects);
+        MenuItem shopm = menu.add(0, SHOP_ID, 0, R.string.menu_need_shopping);
             
         return result;
     }
@@ -284,9 +284,9 @@ public class ProjectListView extends ListActivity {
             ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
     	
-    	menu.add(0, VIEW_ID, 0, "View");
-    	menu.add(0, EDIT_ID, 0, "Edit");
-    	menu.add(0, DELETE_ID,0,  "Delete");
+    	menu.add(0, VIEW_ID, 0, R.string.menu_view);
+    	menu.add(0, EDIT_ID, 0, R.string.menu_edit);
+    	menu.add(0, DELETE_ID,0,  R.string.menu_delete);
     	
     	
     	

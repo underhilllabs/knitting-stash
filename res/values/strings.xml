@@ -32,7 +32,6 @@
     <string name="counter_button">Counters</string>
     <string name="calc_button">Calculator</string>
     <string name="project_button">Projects</string>
-    <string name="menu_add_hook">Add Hook</string>
     
     
     <string name="type">Type: </string>
@@ -59,8 +58,7 @@
     <string name="Steel">Steel</string>
     <string name="Plastic">Plastic</string>
     <string name="Metal">Metal</string>
-
-    <string name="circular">circular</string>
+	<string name="circular">circular</string>
     <string name="dpns">dpns</string>
     <string name="straight">straight</string>
     <string name="Circular">Circular</string>
@@ -75,8 +73,6 @@
     <string name="update_hook">Update Hook</string>
     <string name="update_project">Update Project</string>
     <string name="update_counter">Update Counter</string>
-    <string name="menu_add_needle">Add Needle</string>
-    <string name="menu_add_project">Add Project</string>
 	<string name="use_metric">Use Metric Size for Needles</string>
 	<string name="metric_summary">Use metric knitting needle sizes instead of US sizes.</string>
 
@@ -132,22 +128,60 @@
 	<string name="preferences_button">Update Preferences</string>
 
 	<string name="menu_preferences">Preferences</string>
-	<string name="menu_view">View </string>
-	<string name="menu_edit">Edit </string>
-	<string name="menu_delete">Delete </string>
-	<string name="menu_add">Add </string>
-	<string name="menu_update">Update </string>
+	<string name="menu_need_shopping">Need Shopping</string>
+			
+	<string name="menu_view">View</string>
+	<string name="menu_edit">Edit</string>
+	<string name="menu_delete">Delete</string>
+	<string name="menu_add">Add</string>
+	<string name="menu_update">Update</string>
+
+	<string name="menu_view_project">View Project</string>
+	<string name="menu_edit_project">Edit Project</string>
+	<string name="menu_delete_project">Delete Project</string>
+	<string name="menu_add_project">Add Project</string>
+	<string name="menu_update_project">Update Project</string>
+
+	<string name="menu_view_needle">View Needle</string>
+	<string name="menu_edit_needle">Edit Needle</string>
+	<string name="menu_delete_needle">Delete Needle</string>
+	<string name="menu_add_needle">Add Needle</string>
+	<string name="menu_update_needle">Update Needle</string>
+
+	<string name="menu_view_hook">View Hook</string>
+	<string name="menu_edit_hook">Edit Hook</string>
+	<string name="menu_delete_hook">Delete Hook</string>
+	<string name="menu_add_hook">Add Hook</string>
+	<string name="menu_update_hook">Update Hook</string>
+
+	<string name="menu_view_counter">View Counter</string>
+	<string name="menu_edit_counter">Edit Counter</string>
+	<string name="menu_delete_counter">Delete Counter</string>
+	<string name="menu_add_counter">Add Counter</string>
+	<string name="menu_reset_counter">Reset Counter</string>
+	<string name="menu_update_counter">Update Counter</string>
+
+
 	<string name="menu_in_use">In Use</string>
 	<string name="menu_needle">Needle</string>
 	<string name="menu_project">Project</string>
 	<string name="menu_hook">Hook</string>
 	<string name="menu_counter">Counter</string>
 	<string name="menu_home">Home</string>
-	<string name="menu_shopping">Needed Shopping</string>
+	<string name="menu_needed_shopping">Needed Shopping</string>
 	<string name="menu_all_projects">Show All Projects</string>
 	<string name="menu_unfinished_projects">Show Unfinished Projects</string>
 	
+	<string name="menu_shopping">Shopping: </string>
+	<string name="increase">increase</string>
+	<string name="decrease">decrease</string>
+	<string name="switch_inc">Switch to Increment</string>
+	<string name="switch_dec">Switch to Decrement</string>
+	<string name="please_enter_number">Please enter a number.</string>
 	
+	<string name="prefs_needle_would">Would you like to see US sizes, Metric, or Both?</string>
+    <string name="prefs_needle_option">Needle Size Option</string>
+	<string name="prefs_needle_title">Knitting Needle Preferences</string>
         <string-array name="size_array">
         <item>US 00 / 1.75</item>
         <item>US 0 / 2</item>

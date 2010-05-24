@@ -78,7 +78,7 @@ public class NeedleView extends Activity {
         editm.setIcon(android.R.drawable.ic_menu_edit);
         MenuItem delm = menu.add(0, DEL_ID, 0, R.string.del_app_name);
         delm.setIcon(android.R.drawable.ic_menu_delete);
-        MenuItem homem = menu.add(0, HOME_ID, 0, "Home");
+        MenuItem homem = menu.add(0, HOME_ID, 0, R.string.menu_home);
         homem.setIcon(R.drawable.ic_menu_home);
         return result;
     }
@@ -107,8 +107,28 @@ public class NeedleView extends Activity {
     public void fill_data() {
     	cur = ndb.fetchNeedle(rowid);
         startManagingCursor(cur);
-        type.setText(cur.getString(5) );
-        material.setText(cur.getString(6));
+        //type.setText(cur.getString(5) );
+        if (cur.getString(5).equals("dpns")) {
+        	type.setText(R.string.dpns);
+        } else if (cur.getString(5).equals("straight")) {
+        	type.setText(R.string.straight);
+        } else if (cur.getString(5).equals("circular")) {
+        	type.setText(R.string.circular);
+        }
+        //material.setText(cur.getString(6));
+        if (cur.getString(6).equals("wood")) {
+        	material.setText(R.string.wood);
+        } else if (cur.getString(6).equals("plastic")) {
+        	material.setText(R.string.plastic);
+        } else if (cur.getString(6).equals("metal")) {
+        	material.setText(R.string.metal);
+        } else if (cur.getString(6).equals("steel")) {
+        	material.setText(R.string.steel);
+        } else if (cur.getString(6).equals("bamboo")) {
+        	material.setText(R.string.bamboo);
+        } else {
+        	//material.setText(R.string.Steel);
+        }
         length.setText(cur.getString(3));
         notes.setText(cur.getString(7));
         //size.setText(cur.getString(1));
@@ -119,7 +139,7 @@ public class NeedleView extends Activity {
         	Resources r  = NeedleView.this.getResources();
         	tv_in_use.setBackgroundColor(r.getColor(R.color.green));
       	    tv_in_use.setPadding(5, 0, 5, 0);
-        	tv_in_use.setText("In Use");
+        	tv_in_use.setText(R.string.menu_in_use);
         	
         }
     }

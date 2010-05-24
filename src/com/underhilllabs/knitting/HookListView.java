@@ -81,7 +81,7 @@ public class HookListView extends ListActivity {
         MenuItem sortt = menu.add(0, SORT_TYPE, 2, R.string.sort_type);
         sorts.setIcon(android.R.drawable.ic_menu_sort_by_size);
         sortt.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
-        MenuItem homem = menu.add(0, PREFS_ID, 0, "Preferences");
+        MenuItem homem = menu.add(0, PREFS_ID, 0, R.string.menu_preferences);
         homem.setIcon(android.R.drawable.ic_menu_preferences);
         
         return result;
@@ -112,9 +112,9 @@ public class HookListView extends ListActivity {
     public void onCreateContextMenu(ContextMenu menu, View v,
             ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
-    	menu.add(0, VIEW_ID, 0, "View");
-    	menu.add(0, EDIT_ID, 0, "Edit");
-    	menu.add(0, DELETE_ID,0,  "Delete");
+    	menu.add(0, VIEW_ID, 0, R.string.menu_view);
+    	menu.add(0, EDIT_ID, 0, R.string.menu_edit);
+    	menu.add(0, DELETE_ID,0,  R.string.menu_delete);
     	//edit_item.setIcon(android.R.drawable.ic_menu_edit); 
     	//del_item.setIcon(android.R.drawable.ic_menu_delete);
     }

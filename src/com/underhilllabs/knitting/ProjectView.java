@@ -128,11 +128,12 @@ public class ProjectView extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
         //menu.setHeaderTitle("");
-        MenuItem editm = menu.add(0, EDIT_ID, 0, "Edit Project");
+        //MenuItem editm = menu.add(0, EDIT_ID, 0, "Edit Project");
+        MenuItem editm = menu.add(0, EDIT_ID, 0, R.string.menu_edit_project);
         editm.setIcon(android.R.drawable.ic_menu_edit);
-        MenuItem delm = menu.add(0, DEL_ID, 0, "Delete Project");
+        MenuItem delm = menu.add(0, DEL_ID, 0, R.string.menu_delete_project);
         delm.setIcon(android.R.drawable.ic_menu_delete);
-        MenuItem homem = menu.add(0, HOME_ID, 0, "Home");
+        MenuItem homem = menu.add(0, HOME_ID, 0, R.string.menu_home);
         homem.setIcon(R.drawable.ic_menu_home);
         return result;
     }

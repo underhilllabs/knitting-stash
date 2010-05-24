@@ -70,9 +70,9 @@ public class CounterListView extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        MenuItem addm = menu.add(0, INSERT_ID, 0, "Add Counter");
+        MenuItem addm = menu.add(0, INSERT_ID, 0, R.string.menu_add_counter);
         addm.setIcon(android.R.drawable.ic_menu_add);
-        MenuItem homem = menu.add(0, PREFS_ID, 0, "Preferences");
+        MenuItem homem = menu.add(0, PREFS_ID, 0, R.string.menu_preferences);
         homem.setIcon(android.R.drawable.ic_menu_preferences);
         return result;
     }
@@ -95,9 +95,9 @@ public class CounterListView extends ListActivity {
     public void onCreateContextMenu(ContextMenu menu, View v,
             ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
-    	menu.add(0, VIEW_ID, 0, "View");
-    	menu.add(0, EDIT_ID, 0, "Edit");
-    	menu.add(0, DELETE_ID,0,  "Delete");
+    	menu.add(0, VIEW_ID, 0, R.string.menu_view);
+    	menu.add(0, EDIT_ID, 0, R.string.menu_edit);
+    	menu.add(0, DELETE_ID,0,  R.string.menu_delete);
     }
     @Override
     public boolean onContextItemSelected(MenuItem item) {

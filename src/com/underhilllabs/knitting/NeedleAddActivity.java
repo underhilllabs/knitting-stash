@@ -188,7 +188,7 @@ public class NeedleAddActivity extends Activity {
         		ndb.close();
         	} 
         	catch(NullPointerException npe) {
-        		Log.d("kstash", "caught null pointer excpetion");
+        		Log.d("knittingstash", "caught null pointer excpetion");
         		npe.printStackTrace();
         	}	
         }   	    
