@@ -83,8 +83,6 @@ public class ProjectEditActivity extends Activity {
  				String status = spinner_status.getSelectedItem().toString();
  				int status_i = spinner_status.getSelectedItemPosition();
 
- 				//BWL don't open twice
- 				//pdb.open();
  				notes = notes_field.getText().toString();
  				String needed_shopping = shopping_field.getText().toString();
  				pdb.updateProject(rowid,name,lastmod,status,status_i,f_uri,notes,needed_shopping);
@@ -92,7 +90,6 @@ public class ProjectEditActivity extends Activity {
  				Intent i = new Intent(ProjectEditActivity.this,KnittingStashHome.class);
  				i.putExtra("com.underhilllabs.knitting.tabid",2);
  				startActivity(i);
- 				//Toast.makeText(ProjectEditActivity.this, "Added to Project Inventory", Toast.LENGTH_SHORT).show();
 
  			}
  		});
@@ -107,7 +104,6 @@ public class ProjectEditActivity extends Activity {
  	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        //menu.setHeaderTitle("");
         MenuItem photom = menu.add(0, PHOTO_ID, 0, photo_menu_str);
         photom.setIcon(R.drawable.ic_menu_camera);
         return result;
