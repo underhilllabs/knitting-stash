@@ -206,36 +206,36 @@ public class NeedleEditActivity extends Activity {
 	 //1 = size, 2 size_i
 	 //3 = length, 4 length_i, 5 material, 6 type
 	 // 7 = notes
-	 if (cur.getString(6).equals("wood")) {
+	 if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("wood")) {
 		 radio_wood.setChecked(true);		 
-	 } else if (cur.getString(6).equals("bamboo")) {
+	 } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("bamboo")) {
 		 radio_bamboo.setChecked(true);
-	 } else if (cur.getString(6).equals("plastic")) {
+	 } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("plastic")) {
 		 radio_plastic.setChecked(true);
 	 } else {
 		 radio_steel.setChecked(true);
 	 }
-	 if (cur.getString(5).equals("circular")) {
+	 if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_TYPE)).equals("circular")) {
 		 radio_circular.setChecked(true);
 		 spinner_length.setAdapter(adapter_length_circ);
-	 } else if (cur.getString(5).equals("dpns")) {
+	 } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_TYPE)).equals("dpns")) {
 		 radio_dpns.setChecked(true);
 		 spinner_length.setAdapter(adapter_length_dpns);
 	 } else {
 		 radio_straight.setChecked(true);
 		 spinner_length.setAdapter(adapter_length_straight);
 	 }
-	 if(cur.getInt(10)>0) {
+	 if(cur.getInt(cur.getColumnIndex(DbAdapter.KEY_IN_USE))>0) {
 		 cb_in_use.setChecked(true);
 	 }
 	 
 	 //Toast.makeText(NeedleEditActivity.this, " 1:"+cur.getString(6) , Toast.LENGTH_LONG).show();
 	 //spinner_size.setSelection(c.getInt(2));
-	 int size_i= cur.getInt(2);
+	 int size_i= cur.getInt(cur.getColumnIndex(DbAdapter.KEY_SIZE_I));
 	 spinner_size.setSelection(size_i);
-	 int length_i = cur.getInt(4);
+	 int length_i = cur.getInt(cur.getColumnIndex(DbAdapter.KEY_LENGTH_I));
 	 spinner_length.setSelection(length_i);
-	 notes_field.setText(cur.getString(7));
+	 notes_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
 	 
 	 return true;
  }

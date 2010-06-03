@@ -108,33 +108,33 @@ public class NeedleView extends Activity {
     	cur = ndb.fetchNeedle(rowid);
         startManagingCursor(cur);
         //type.setText(cur.getString(5) );
-        if (cur.getString(5).equals("dpns")) {
+        if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_TYPE)).equals("dpns")) {
         	type.setText(R.string.dpns);
-        } else if (cur.getString(5).equals("straight")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_TYPE)).equals("straight")) {
         	type.setText(R.string.straight);
-        } else if (cur.getString(5).equals("circular")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_TYPE)).equals("circular")) {
         	type.setText(R.string.circular);
         }
         //material.setText(cur.getString(6));
-        if (cur.getString(6).equals("wood")) {
+        if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("wood")) {
         	material.setText(R.string.wood);
-        } else if (cur.getString(6).equals("plastic")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("plastic")) {
         	material.setText(R.string.plastic);
-        } else if (cur.getString(6).equals("metal")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("metal")) {
         	material.setText(R.string.metal);
-        } else if (cur.getString(6).equals("steel")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("steel")) {
         	material.setText(R.string.steel);
-        } else if (cur.getString(6).equals("bamboo")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("bamboo")) {
         	material.setText(R.string.bamboo);
         } else {
         	//material.setText(R.string.Steel);
         }
-        length.setText(cur.getString(3));
-        notes.setText(cur.getString(7));
+        length.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_LENGTH)));
+        notes.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
         //size.setText(cur.getString(1));
-        int size_i = cur.getInt(2);
+        int size_i = cur.getInt(cur.getColumnIndex(DbAdapter.KEY_SIZE_I));
         size.setText(size_array[size_i]);
-        in_use=cur.getInt(10);
+        in_use=cur.getInt(cur.getColumnIndex(DbAdapter.KEY_IN_USE));
         if(in_use>0) {
         	Resources r  = NeedleView.this.getResources();
         	tv_in_use.setBackgroundColor(r.getColor(R.color.green));

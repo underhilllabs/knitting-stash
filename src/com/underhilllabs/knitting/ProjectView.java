@@ -162,17 +162,17 @@ public class ProjectView extends Activity {
     public void fill_data() {
     	cur = pdb.fetchProject(rowid);
         startManagingCursor(cur);
-        name = cur.getString(1);
-        notes = cur.getString(7);
-        needed_shopping = cur.getString(8);
-        lastmod = cur.getString(3);
-        status = cur.getString(4);
-        status_i =  cur.getInt(5);
+        name = cur.getString(cur.getColumnIndex(DbAdapter.KEY_NAME));
+        notes = cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES));
+        needed_shopping = cur.getString(cur.getColumnIndex(DbAdapter.KEY_NEEDED_SHOPPING));
+        lastmod = cur.getString(cur.getColumnIndex(DbAdapter.KEY_LASTMOD));
+        status = cur.getString(cur.getColumnIndex(DbAdapter.KEY_STATUS));
+        status_i =  cur.getInt(cur.getColumnIndex(DbAdapter.KEY_STATUS_I));
         
-        tvName.setText(cur.getString(1));
-        tvNotes.setText(cur.getString(7));
-        tvShopping.setText(cur.getString(8));
-        f_uri = cur.getString(6);  
+        tvName.setText(name);
+        tvNotes.setText(notes);
+        tvShopping.setText(needed_shopping);
+        f_uri = cur.getString(cur.getColumnIndex(DbAdapter.KEY_PICTURE));  
         if(f_uri != null) {
         	Uri myUri = Uri.parse(f_uri);
         	Bitmap bm = BitmapFactory.decodeFile(myUri.getSchemeSpecificPart());

@@ -76,9 +76,9 @@ public class CounterEditActivity extends Activity {
 		//1 = name, 2 start
 		//3 = lastmod, 
 		// 4 = notes
-		name_field.setText(cur.getString(1));
-		notes_field.setText(cur.getString(8));
-		curval.setText(cur.getString(2));
+		name_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NAME)));
+		notes_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
+		curval.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_CURRENT_VAL)));
 		return true;
 	}
 } 

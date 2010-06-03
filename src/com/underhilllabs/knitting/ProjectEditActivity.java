@@ -138,16 +138,16 @@ public class ProjectEditActivity extends Activity {
 		// 4 = notes
 		//Toast.makeText(ProjectEditActivity.this, " 1:"+cur.getString(6) , Toast.LENGTH_LONG).show();
 		//spinner_size.setSelection(cur.getInt(2));
-		name_field.setText(cur.getString(1));
-		notes_field.setText(cur.getString(7));
-		shopping_field.setText(cur.getString(8));
+		name_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NAME)));
+		notes_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
+		shopping_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NEEDED_SHOPPING)));
         adapter_status = ArrayAdapter.createFromResource(
                 this, R.array.status_array, android.R.layout.simple_spinner_item);
         adapter_status.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_status.setAdapter(adapter_status);
 		int status_i= cur.getInt(5);
 		spinner_status.setSelection(status_i);
-		String img_str = cur.getString(6);
+		String img_str = cur.getString(cur.getColumnIndex(DbAdapter.KEY_PICTURE));
 		Bitmap bm = null;
 		if(img_str!=null) {
 			Uri myUri = Uri.parse(img_str);

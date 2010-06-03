@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -137,12 +138,19 @@ public class CounterView extends Activity {
     public void fill_data() {
     	cur = pdb.fetchCounter(rowid);
         startManagingCursor(cur);
-        tvName.setText(cur.getString(1));
-        tvNotes.setText(cur.getString(8));
-        cur_val = Integer.parseInt(cur.getString(2));
-        counter_button.setText(cur.getString(2));
-			
+        // add try catch
+        cur_val=0;
+        //tvName.setText(cur.getString(1));
+        //tvNotes.setText(cur.getString(8));
+        //cur_val = Integer.parseInt(cur.getString(2));
+        
+        tvName.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NAME)));
+        tvNotes.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
+        cur_val = Integer.parseInt(cur.getString(cur.getColumnIndex(DbAdapter.KEY_CURRENT_VAL)));
+        counter_button.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_CURRENT_VAL)));
+
     }
+    
     public boolean deleteCounter(long nid) {
     	final Long needleId = nid;
     	AlertDialog.Builder builder = new AlertDialog.Builder(CounterView.this);

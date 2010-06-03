@@ -82,22 +82,22 @@ public class HookView extends Activity {
     	cur = hdb.fetchHook(rowid);
         startManagingCursor(cur);
         // need to display translation 
-        if (cur.getString(3).equals("wood")) {
+        if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("wood")) {
         	material.setText(R.string.wood);
-        } else if (cur.getString(3).equals("plastic")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("plastic")) {
         	material.setText(R.string.plastic);
-        } else if (cur.getString(3).equals("metal")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("metal")) {
         	material.setText(R.string.metal);
-        } else if (cur.getString(3).equals("steel")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("steel")) {
         	material.setText(R.string.steel);
-        } else if (cur.getString(3).equals("bamboo")) {
+        } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("bamboo")) {
         	material.setText(R.string.bamboo);
         } else {
         	//material.setText(R.string.Steel);
         }
         //material.setText(cur.getString(3));
-        notes.setText(cur.getString(4));
-        size.setText(cur.getString(1));
+        notes.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
+        size.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_SIZE)));
         
     }
     public boolean deleteNeedle(long nid) {

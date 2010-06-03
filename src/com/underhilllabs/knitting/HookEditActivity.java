@@ -123,22 +123,22 @@ public class HookEditActivity extends Activity {
 	 //1 = size, 2 size_i
 	 //3 = material, 
 	 // 4 = notes
-	 if (cur.getString(3).equals("wood")) {
+	 if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("wood")) {
 		 radio_wood.setChecked(true);		 
-	 } else if (cur.getString(3).equals("bamboo")) {
+	 } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("bamboo")) {
 		 radio_bamboo.setChecked(true);
-	 } else if (cur.getString(3).equals("plastic")) {
+	 } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("plastic")) {
 		 radio_plastic.setChecked(true);
-	 } else if (cur.getString(3).equals("metal")) {
+	 } else if (cur.getString(cur.getColumnIndex(DbAdapter.KEY_MATERIAL)).equals("metal")) {
 		 radio_metal.setChecked(true);
 	 } else {
 		 radio_steel.setChecked(true);
 	 }
 	 //Toast.makeText(HookEditActivity.this, " 1:"+cur.getString(6) , Toast.LENGTH_LONG).show();
 	 //spinner_size.setSelection(cur.getInt(2));
-	 int size_i= cur.getInt(2);
+	 int size_i= cur.getInt(cur.getColumnIndex(DbAdapter.KEY_SIZE_I));
 	 spinner_size.setSelection(size_i);
-	 notes_field.setText(cur.getString(4));
+	 notes_field.setText(cur.getString(cur.getColumnIndex(DbAdapter.KEY_NOTES)));
 	 
 	 
 	 return true;
