@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.underhilllabs.knitting" android:versionCode="12" android:versionName="1.2"
+      package="com.underhilllabs.knitting" android:versionCode="13" android:versionName="1.3"
       android:installLocation="auto"
       >
-    <application android:icon="@drawable/knit10" android:theme="@android:style/Theme" android:label="@string/home_app_name">
+    <uses-sdk android:targetSdkVersion="17" android:minSdkVersion="8" />
+    <application android:icon="@drawable/knit10"
+                 android:theme="@android:style/Theme"
+                 android:label="@string/home_app_name"
+                 android:allowBackup="true"
+                >
 
-    		<activity android:name=".KnittingStashHome"
+        <activity android:name=".KnittingStashHome"
                   android:label="@string/home_app_name">
-            <intent-filter>
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       
-       	<activity android:name=".KnittingStashTabs"
+
+        <activity android:name=".KnittingStashTabs"
                   android:label="@string/list_app_name">
         </activity>
-       	<activity android:name=".KnittingStashListHome"
+        <activity android:name=".KnittingStashListHome"
                   android:label="@string/list_app_name">
 
-       </activity>
-       
-    		<activity android:name=".NeedleListView"
+        </activity>
+
+        <activity android:name=".NeedleListView"
                   android:label="@string/list_app_name">
         </activity>
-       
+
         <activity android:name=".NeedleAddActivity"
                   android:label="@string/add_app_name">
         </activity>
          <activity android:name=".Counters"
                   android:label="Counters">
         </activity>
-       
+
         <activity android:name=".NeedleEditActivity"
                   android:label="@string/edit_app_name">
         </activity>
         <activity android:name=".NeedleView"
                   android:label="@string/view_app_name">
         </activity>
-        
+
         <activity android:name=".HookEditActivity"
                   android:label="@string/edit_hook_app_name">
         </activity>
@@ -91,5 +96,6 @@
     </application>
 
 
-<uses-sdk android:minSdkVersion="3"></uses-sdk>
+
+
 </manifest> 
