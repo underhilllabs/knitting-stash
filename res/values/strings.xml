@@ -88,14 +88,16 @@
 	<string name="dialog_button_delete">Delete</string>
 	<string name="dialog_button_cancel">Cancel</string>
 
-	<string name="counter_add_title">Create a new Counter</string>
-	<string name="counter_edit_title">Edit Counter</string>
+
+    <string name="counter_activity_title">Counters</string>
+    <string name="counter_add_title">Create a new Counter</string>
+    <string name="counter_edit_title">Edit Counter</string>
 	<string name="counter_view_title">View Counter</string>
 	<string name="counter_name_label">Counter Name</string>
 	<string name="counter_value_label">Counter Value</string>
 	
 	<string name="notes_label">Notes:</string>
-	<string name="mode_label">Mode:</string>	
+	<string name="mode_label">Mode:</string>
 	<string name="counter_add_button">Create Counter</string>
 	<string name="counter_list_empty">No counters available.  Press menu to create one.</string>
 	<string name="counter_update_button">Update Counter</string>
@@ -178,7 +180,8 @@
 	<string name="switch_inc">Switch to Increment</string>
 	<string name="switch_dec">Switch to Decrement</string>
 	<string name="please_enter_number">Please enter a number.</string>
-	
+
+    <string name="prefs_edit_activity_title">Edit Preferences</string>
 	<string name="prefs_needle_would">Would you like to see US sizes, Metric, or Both?</string>
     <string name="prefs_needle_option">Needle Size Option</string>
 	<string name="prefs_needle_title">Knitting Needle Preferences</string>
