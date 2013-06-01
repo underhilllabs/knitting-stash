@@ -2,6 +2,7 @@ package com.underhilllabs.knitting;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.backup.BackupManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,16 +18,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class NeedleListView extends ListActivity {
 
-	private DbAdapter ndb;
+    private DbAdapter ndb;
 	private Cursor cur;
 	private static final int INSERT_ID = Menu.FIRST;
 	private static final int VIEW_ID = Menu.FIRST;
@@ -36,6 +34,7 @@ public class NeedleListView extends ListActivity {
 	private static final int SORT_TYPE = Menu.FIRST + 4;
 	private static final int PREFS_ID = Menu.FIRST + 5;
 	private static final int SORT_IN_USE = Menu.FIRST + 6;
+    private static final int BACKUP_DATA = Menu.FIRST + 7;
 	private Resources r;
 	private String[] size_array;
 	public static final String PREF_SIZE_OPTION = "NEEDLE_SIZE_OPTION";
@@ -154,6 +153,7 @@ public class NeedleListView extends ListActivity {
 		MenuItem sorts = menu.add(0, SORT_SIZE, 1, R.string.sort_size);
 		MenuItem sortt = menu.add(0, SORT_TYPE, 2, R.string.sort_type);
 		MenuItem sorti = menu.add(0, SORT_IN_USE, 3, R.string.sort_in_use);
+        MenuItem backup = menu.add(0, BACKUP_DATA, 4, R.string.backup_data);
 		addm.setIcon(android.R.drawable.ic_menu_add);
 		sorts.setIcon(android.R.drawable.ic_menu_sort_by_size);
 		sortt.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
@@ -182,11 +182,27 @@ public class NeedleListView extends ListActivity {
 			Intent i3 = new Intent(this, myPreferencesActivity.class);
 			startActivity(i3);
 			return true;
+        case BACKUP_DATA:
+            callBackupData();
+            return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
-	@Override
+    private void callBackupData() {
+        BackupManager mBackupManager = new BackupManager(this);
+        if(mBackupManager != null) {
+            mBackupManager.dataChanged();
+            Toast.makeText(this, "Data Backup requested.", 2000).show();
+            Log.d("KnittingStash.BackupAgent", "Data backup requested.");
+        } else {
+            Toast.makeText(this, "Data Backup request failed.", 2000).show();
+            Log.d("KnittingStash.BackupAgent", "Data backup request failed.");
+        }
+
+    }
+
+    @Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);

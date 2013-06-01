@@ -40,6 +40,8 @@ public class DbAdapter {
 	private DatabaseHelper mDbHelper;
 	private SQLiteDatabase mDb;
 
+    public static final Object[] dbLock = new Object[0];
+
 	/**
 	 * Database creation sql statement
 	 */
@@ -82,7 +84,7 @@ public class DbAdapter {
 			+ "counter_x integer, "
 			+ "counter_y integer);";
 
-	private static final String DATABASE_NAME = "knittingstash";
+	public static final String DATABASE_NAME = "knittingstash";
 	private static final String N_DATABASE_TABLE = "needles";
 	private static final String H_DATABASE_TABLE = "hooks";
 	private static final String P_DATABASE_TABLE = "projects";
@@ -217,10 +219,6 @@ public class DbAdapter {
 	 * successfully created return the new rowId for that note, otherwise return
 	 * a -1 to indicate failure.
 	 * 
-	 * @param title
-	 *            the title of the note
-	 * @param body
-	 *            the body of the note
 	 * @return rowId or -1 if failed
 	 */
 	public long createNeedle(String size, int size_i, String type,
@@ -237,8 +235,11 @@ public class DbAdapter {
 		initialValues.put(KEY_IS_METRIC, is_metric);
 		initialValues.put(KEY_IS_CROCHET, is_crochet);
 		initialValues.put(KEY_IN_USE, in_use);
-
-		return mDb.insert(N_DATABASE_TABLE, null, initialValues);
+        long rowId;
+        synchronized (DbAdapter.dbLock) {
+            rowId = mDb.insert(N_DATABASE_TABLE, null, initialValues);
+        }
+        return rowId;
 	}
 
 	/**
@@ -249,8 +250,11 @@ public class DbAdapter {
 	 * @return true if deleted, false otherwise
 	 */
 	public boolean deleteNeedle(long rowId) {
-
-		return mDb.delete(N_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean delSuccessful = false;
+        synchronized (DbAdapter.dbLock) {
+            delSuccessful = mDb.delete(N_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return delSuccessful;
 	}
 
 	/**
@@ -320,9 +324,9 @@ public class DbAdapter {
 	 * 
 	 * @param rowId
 	 *            id of note to update
-	 * @param title
+	 * @param length_i
 	 *            value to set note title to
-	 * @param body
+	 * @param length
 	 *            value to set note body to
 	 * @return true if the note was successfully updated, false otherwise
 	 */
@@ -340,8 +344,11 @@ public class DbAdapter {
 		args.put(KEY_IS_METRIC, is_metric);
 		args.put(KEY_IS_CROCHET, is_crochet);
 		args.put(KEY_IN_USE, in_use);
-		return mDb
-				.update(N_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean updateSuccessful = false;
+        synchronized (DbAdapter.dbLock) {
+            updateSuccessful =  mDb.update(N_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return updateSuccessful;
 	}
 
 	/**
@@ -356,13 +363,19 @@ public class DbAdapter {
 		initialValues.put(KEY_SIZE_I, size_i);
 		initialValues.put(KEY_MATERIAL, material);
 		initialValues.put(KEY_NOTES, notes);
-
-		return mDb.insert(H_DATABASE_TABLE, null, initialValues);
+        long rowId = 0;
+        synchronized (DbAdapter.dbLock) {
+            rowId = mDb.insert(H_DATABASE_TABLE, null, initialValues);
+        }
+        return rowId;
 	}
 
 	public boolean deleteHook(long rowId) {
-
-		return mDb.delete(H_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean delSuccessful = false;
+        synchronized (DbAdapter.dbLock) {
+            delSuccessful= mDb.delete(H_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return delSuccessful;
 	}
 
 	public Cursor fetchAllHooks() {
@@ -405,9 +418,11 @@ public class DbAdapter {
 		args.put(KEY_SIZE_I, size_i);
 		args.put(KEY_MATERIAL, material);
 		args.put(KEY_NOTES, notes);
-
-		return mDb
-				.update(H_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean updateSuccessful;
+        synchronized (DbAdapter.dbLock) {
+            updateSuccessful =  mDb.update(H_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return updateSuccessful;
 	}
 
 	/*
@@ -425,12 +440,20 @@ public class DbAdapter {
 		initialValues.put(KEY_NOTES, notes);
 		initialValues.put(KEY_NEEDED_SHOPPING, needed_shopping);
 
-		return mDb.insert(P_DATABASE_TABLE, null, initialValues);
+        long rowId;
+        synchronized (DbAdapter.dbLock) {
+            rowId = mDb.insert(P_DATABASE_TABLE, null, initialValues);
+        }
+        return rowId;
 	}
 
 	public boolean deleteProject(long rowId) {
+        boolean delSuccessful = false;
+        synchronized (DbAdapter.dbLock) {
+            delSuccessful = mDb.delete(P_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return delSuccessful;
 
-		return mDb.delete(P_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
 	}
 
 	public Cursor fetchAllProjects() {
@@ -502,8 +525,11 @@ public class DbAdapter {
 		args.put(KEY_PICTURE, pic_uri);
 		args.put(KEY_NOTES, notes);
 		args.put(KEY_NEEDED_SHOPPING, needed_shopping);
-		return mDb
-				.update(P_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean updateSuccessful;
+        synchronized (DbAdapter.dbLock) {
+            updateSuccessful = mDb.update(P_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return updateSuccessful;
 	}
 
 	/*
@@ -523,12 +549,19 @@ public class DbAdapter {
 		initialValues.put(KEY_MULTIPLE, multiple);
 		initialValues.put(KEY_NOTES, notes);
 
-		return mDb.insert(C_DATABASE_TABLE, null, initialValues);
+        long rowId;
+        synchronized (DbAdapter.dbLock) {
+            rowId = mDb.insert(C_DATABASE_TABLE, null, initialValues);
+        }
+        return rowId;
 	}
 
 	public boolean deleteCounter(long rowId) {
-
-		return mDb.delete(C_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean delSuccessful = false;
+        synchronized (DbAdapter.dbLock) {
+            delSuccessful = mDb.delete(C_DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return delSuccessful;
 	}
 
 	public Cursor fetchAllCounters() {
@@ -573,16 +606,21 @@ public class DbAdapter {
 		ContentValues args = new ContentValues();
 		args.put(KEY_CURRENT_VAL, current_val + inc_amt);
 
-		return mDb
-				.update(C_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean updateSuccessful;
+        synchronized (DbAdapter.dbLock) {
+            updateSuccessful = mDb.update(C_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return updateSuccessful;
 	}
 
 	public boolean setCounter(long rowId, int current_val) {
 		ContentValues args = new ContentValues();
 		args.put(KEY_CURRENT_VAL, current_val);
-
-		return mDb
-				.update(C_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean updateSuccessful;
+        synchronized (DbAdapter.dbLock) {
+            updateSuccessful = mDb.update(C_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return updateSuccessful;
 
 	}
 
@@ -598,9 +636,11 @@ public class DbAdapter {
 		args.put(KEY_TYPE, type);
 		args.put(KEY_MULTIPLE, multiple);
 		args.put(KEY_NOTES, notes);
-
-		return mDb
-				.update(C_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        boolean updateSuccessful = false;
+        synchronized (DbAdapter.dbLock) {
+            updateSuccessful = mDb.update(C_DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        return updateSuccessful;
 	}
 	/*
 	 * public Cursor fetchAllAvailableNeedles() { // TODO Auto-generated method

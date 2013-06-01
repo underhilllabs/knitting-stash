@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.underhilllabs.knitting" android:versionCode="13" android:versionName="1.3"
+      package="com.underhilllabs.knitting" android:versionCode="20" android:versionName="1.91"
       android:installLocation="auto"
       >
-    <uses-sdk android:targetSdkVersion="17" android:minSdkVersion="8" />
+    <uses-sdk android:targetSdkVersion="13" android:minSdkVersion="8" />
     <application android:icon="@drawable/knit10"
                  android:theme="@android:style/Theme"
                  android:label="@string/home_app_name"
                  android:allowBackup="true"
+                 android:backupAgent="MyBackupAgent"
                 >
 
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIacN9o8GawJKUVWawceSmifHqjEhra--AA_zLaA" />
         <activity android:name=".KnittingStashHome"
                   android:label="@string/home_app_name">
            <intent-filter>
