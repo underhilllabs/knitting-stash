@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.underhilllabs.knitting" android:versionCode="20" android:versionName="1.91"
+      package="com.underhilllabs.knitting" android:versionCode="21" android:versionName="1.92"
       android:installLocation="auto"
       >
     <uses-sdk android:targetSdkVersion="13" android:minSdkVersion="8" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application android:icon="@drawable/knit10"
                  android:theme="@android:style/Theme"
                  android:label="@string/home_app_name"

@@ -50,8 +50,7 @@ public class ProjectAddActivity extends Activity {
 				int status_i = spinner_status.getSelectedItemPosition();
 				String needed_shopping = shopping_field.getEditableText()
 						.toString();
-				;
-				// get date string
+                // get date string
 				DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 				java.util.Date date = new java.util.Date();
 				String cdatetime = dateFormat.format(date);

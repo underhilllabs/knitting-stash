@@ -12,7 +12,7 @@
   <TextView
 	android:id="@+id/name"  
 	style="@style/FormTop"
-    android:layout_width="fill_parent" 
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
     />
@@ -20,11 +20,11 @@
 	
 <ImageView
 	android:id="@+id/imagev"
-	android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
+	android:layout_width="240dp"
+    android:layout_height="240dp"
     android:scaleType="fitCenter" 
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     android:layout_alignParentLeft="true"
     android:layout_below="@+id/name"
     /> 

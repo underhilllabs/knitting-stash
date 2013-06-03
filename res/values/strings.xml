@@ -356,5 +356,6 @@
 
     <string name="disclaimer_title">Disclaimer</string>    
     <string name="disclaimer_accept">Accept</string>
-    
+    <string name="backup_data">Backup App Data</string>
+
 </resources>

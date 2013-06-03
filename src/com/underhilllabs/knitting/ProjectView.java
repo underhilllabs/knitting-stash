@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +32,7 @@ public class ProjectView extends Activity {
 	private TextView tvNotes;
 	private TextView tvShopping;
 	// private TextView tvPicuri;
-	private ImageView imagev;
+	private ImageView mImageView;
 	private DbAdapter pdb;
 	private long rowid;
 	private Cursor cur;
@@ -55,64 +57,35 @@ public class ProjectView extends Activity {
 		tvName = (TextView) findViewById(R.id.name);
 		tvShopping = (TextView) findViewById(R.id.shopping);
 		// tvLastmod = (TextView) findViewById(R.id.lastmod);
-		imagev = (ImageView) findViewById(R.id.imagev);
+		mImageView = (ImageView) findViewById(R.id.imagev);
 
 		// get rowid from Intent Bundle
 		Bundle extras = getIntent().getExtras();
 		rowid = extras.getLong("com.underhilllabs.knitting.rowid");
 
-		imagev.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				// Intent i = new Intent(ProjectView.this,
-				// ProjectFullViewActivity.class);
-				// i.putExtra("com.underhilllabs.knitting.rowid", rowid);
-				// startActivity(i);
+		mImageView.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+                // Intent i = new Intent(ProjectView.this,
+                // ProjectFullViewActivity.class);
+                // i.putExtra("com.underhilllabs.knitting.rowid", rowid);
+                // startActivity(i);
 
-				if (f_uri != null) {
-					Uri myUri = Uri.parse(f_uri);
-					Intent intent = new Intent();
-					intent.setAction(android.content.Intent.ACTION_VIEW);
-					intent.setDataAndType(myUri, "image/png");
-					startActivity(intent);
-				} else {
-					String path = "/sdcard/pic" + rowid + ".png";
-					Intent intent = new Intent();
-					intent.setAction(android.content.Intent.ACTION_VIEW);
-					intent.setDataAndType(Uri.fromFile(new File(path)),
-							"image/png");
-					startActivity(intent);
-				}
+                if (f_uri != null) {
+                    Uri myUri = Uri.parse(f_uri);
+                    Log.d("KnittingStash", "f_uri not null " + myUri.getPath());
+                    Intent intent = new Intent();
+                    intent.setAction(android.content.Intent.ACTION_VIEW);
+                    intent.setDataAndType(myUri, "image/jpeg");
+                    startActivity(intent);
+                }
 
-			}
-		});
+            }
+        });
 
 		pdb = new DbAdapter(this);
 		pdb.open();
 		fill_data();
 
-		// check if there is no f_uri,
-		// if so upgrade image path
-		if (f_uri == null) {
-			File img_f = new File("/sdcard/pic" + rowid + ".png");
-			String new_f = "/sdcard/knittingstash/pic" + rowid + ".png";
-			// make sure the knittingstash dir is created
-			File imgDir = new File(Environment.getExternalStorageDirectory(),
-					"/knittingstash/");
-			imgDir.mkdir();
-
-			if (img_f.exists()) {
-				try {
-					// String new_f = "/sdcard/knittingstash/"+rowid+".png";
-					copyFile(img_f, new File(new_f));
-				} catch (IOException ioe) {
-					Log.d("knittingstash", "caught ioe");
-
-				}
-
-			}
-			pdb.updateProject(rowid, name, lastmod, status, status_i, "file:"
-					+ new_f, notes, needed_shopping);
-		}
 	}
 
 	@Override
@@ -173,9 +146,7 @@ public class ProjectView extends Activity {
 		tvShopping.setText(needed_shopping);
 		f_uri = cur.getString(cur.getColumnIndex(DbAdapter.KEY_PICTURE));
 		if (f_uri != null) {
-			Uri myUri = Uri.parse(f_uri);
-			Bitmap bm = BitmapFactory.decodeFile(myUri.getSchemeSpecificPart());
-			imagev.setImageBitmap(bm);
+            setPic();
 		} else {
 			// Bitmap bm = BitmapFactory.decodeFile("/sdcard/pic"+rowid+".png");
 			// imagev.setImageBitmap(bm);
@@ -235,4 +206,30 @@ public class ProjectView extends Activity {
 
 		return true;
 	}
+
+    private void setPic() {
+        Resources r = getResources();
+        int width = (int) Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 240, r.getDisplayMetrics()));
+        // Get the dimensions of the View
+        int targetW = width;
+        int targetH = width;
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(f_uri, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(f_uri, bmOptions);
+        mImageView.setImageBitmap(bitmap);
+    }
 }

@@ -14,8 +14,7 @@ public class CounterEditActivity extends Activity {
 	/** Called when the activity is first created. */
 
 	private DbAdapter pdb;
-	private Cursor cur;
-	private EditText notes_field;
+    private EditText notes_field;
 	private EditText name_field;
 	private EditText curval;
 	private long rowid;
@@ -48,7 +47,7 @@ public class CounterEditActivity extends Activity {
 							.toString());
 				} catch (NumberFormatException e) {
 					Toast.makeText(CounterEditActivity.this,
-							R.string.please_enter_number, Toast.LENGTH_LONG);
+							R.string.please_enter_number, Toast.LENGTH_LONG).show();
 				}
 				int proj_id = 0;
 				String proj_name = "";
@@ -76,7 +75,7 @@ public class CounterEditActivity extends Activity {
 	}
 
 	private boolean setWidgets(long row_id) {
-		cur = pdb.fetchCounter(row_id);
+        Cursor cur = pdb.fetchCounter(row_id);
 		startManagingCursor(cur);
 		// 1 = name, 2 start
 		// 3 = lastmod,
@@ -84,9 +83,9 @@ public class CounterEditActivity extends Activity {
 		name_field.setText(cur
 				.getString(cur.getColumnIndex(DbAdapter.KEY_NAME)));
 		notes_field.setText(cur.getString(cur
-				.getColumnIndex(DbAdapter.KEY_NOTES)));
+                .getColumnIndex(DbAdapter.KEY_NOTES)));
 		curval.setText(cur.getString(cur
-				.getColumnIndex(DbAdapter.KEY_CURRENT_VAL)));
+                .getColumnIndex(DbAdapter.KEY_CURRENT_VAL)));
 		return true;
 	}
 }

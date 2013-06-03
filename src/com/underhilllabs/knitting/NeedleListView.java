@@ -193,10 +193,10 @@ public class NeedleListView extends ListActivity {
         BackupManager mBackupManager = new BackupManager(this);
         if(mBackupManager != null) {
             mBackupManager.dataChanged();
-            Toast.makeText(this, "Data Backup requested.", 2000).show();
+            Toast.makeText(this, "Data Backup requested.", Toast.LENGTH_SHORT).show();
             Log.d("KnittingStash.BackupAgent", "Data backup requested.");
         } else {
-            Toast.makeText(this, "Data Backup request failed.", 2000).show();
+            Toast.makeText(this, "Data Backup request failed.", Toast.LENGTH_SHORT).show();
             Log.d("KnittingStash.BackupAgent", "Data backup request failed.");
         }
 
