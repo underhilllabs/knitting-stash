@@ -13,6 +13,6 @@
 	android:id="@+id/notes_row"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_below="@+id/name_row"
+	android:layout_below="@id/name_row"
 	/> 	
 </RelativeLayout>

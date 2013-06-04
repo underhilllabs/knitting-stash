@@ -18,7 +18,7 @@
     android:id="@+id/name_label"  
     android:layout_width="100dip" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/top_form"
+    android:layout_below="@id/top_form"
     android:text="@string/counter_name_label"
     />
  
@@ -26,27 +26,27 @@
 	android:id="@+id/name_field"  
     android:layout_width="120dip" 
     android:layout_height="wrap_content" 
-    android:layout_toRightOf="@+id/name_label"
-    android:layout_alignTop="@+id/name_label"
+    android:layout_toRightOf="@id/name_label"
+    android:layout_alignTop="@id/name_label"
     />
 <TextView  
 	android:id="@+id/notes_label"  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/notes_label"
-    android:layout_below="@+id/name_field"
+    android:layout_below="@id/name_field"
     
     />
 <EditText
 	android:id="@+id/notes_field"  
-    android:layout_below="@+id/notes_label"
+    android:layout_below="@id/notes_label"
     style="@style/TextArea"
     />
 <Button  
 	android:id="@+id/add_counter_button"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/notes_field"
+    android:layout_below="@id/notes_field"
     android:text="@string/counter_add_button"
     />
     

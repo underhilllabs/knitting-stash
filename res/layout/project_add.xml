@@ -19,7 +19,7 @@
     android:id="@+id/name_label"  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/top_form"
+    android:layout_below="@id/top_form"
     android:text="@string/project_name_label"
     />
  
@@ -27,14 +27,14 @@
 	android:id="@+id/name_field"  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/name_label"
+    android:layout_below="@id/name_label"
     />
     <TextView
 	android:id="@+id/status_label"    
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/project_status_label"
-    android:layout_below="@+id/name_field"
+    android:layout_below="@id/name_field"
 	/>
 
     <Spinner 
@@ -49,12 +49,12 @@
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/notes_desc"
-    android:layout_below="@+id/spinner_status"
+    android:layout_below="@id/spinner_status"
     
     />
 <EditText
 	android:id="@+id/notes_field"  
-    android:layout_below="@+id/notes_label"
+    android:layout_below="@id/notes_label"
    	style="@style/TextArea"
     />
 <TextView  
@@ -62,12 +62,12 @@
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/shopping_desc"
-    android:layout_below="@+id/notes_field"
+    android:layout_below="@id/notes_field"
     
     />
 <EditText
     android:id="@+id/shopping_field"  
-    android:layout_below="@+id/shopping_label"
+    android:layout_below="@id/shopping_label"
         android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     
@@ -76,7 +76,7 @@
 	android:id="@+id/add_project_button"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/shopping_field"
+    android:layout_below="@id/shopping_field"
     android:text="@string/project_add_button"
     />
     

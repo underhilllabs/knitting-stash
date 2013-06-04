@@ -12,20 +12,20 @@
   <ImageButton
   android:id="@+id/crochet_button"
   style="@style/HomeButton"
-  android:layout_toRightOf="@+id/knit_button"
+  android:layout_toRightOf="@id/knit_button"
   android:src="@drawable/project_hook"
   />
   <ImageButton
   android:id="@+id/project_button"
   style="@style/HomeButton"
-  android:layout_below="@+id/knit_button"
+  android:layout_below="@id/knit_button"
   android:src="@drawable/project_button"
   />
     <ImageButton
   android:id="@+id/counter_button"
   style="@style/HomeButton"
-  android:layout_toRightOf="@+id/project_button"
+  android:layout_toRightOf="@id/project_button"
   android:src="@drawable/counter_button"
-  android:layout_below="@+id/knit_button"
+  android:layout_below="@id/knit_button"
   />
 </RelativeLayout>

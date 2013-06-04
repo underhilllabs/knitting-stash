@@ -45,8 +45,8 @@ android:id="@+id/top_label"
 	android:layout_width="100dp" 
     android:layout_height="100dp" 
     
-    android:layout_below="@+id/image_label"
-    android:layout_alignLeft="@+id/image_label"
+    android:layout_below="@id/image_label"
+    android:layout_alignLeft="@id/image_label"
 	/>
 <Button  
 	android:id="@+id/photo_button"
@@ -63,7 +63,7 @@ android:id="@+id/top_label"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/project_status_label"
-    android:layout_below="@+id/photo_button"
+    android:layout_below="@id/photo_button"
 	/>
 
     <Spinner 
