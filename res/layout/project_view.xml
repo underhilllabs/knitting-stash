@@ -26,7 +26,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:layout_alignParentLeft="true"
-    android:layout_below="@+id/name"
+    android:layout_below="@id/name"
     /> 
     
     
@@ -37,14 +37,14 @@
 	android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/notes_desc"
-	android:layout_below="@+id/imagev"
+	android:layout_below="@id/imagev"
 	
         />
 	<TextView
 	android:id="@+id/notes"  
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/notes_label"
+    android:layout_below="@id/notes_label"
     
 	/>    
 
@@ -53,14 +53,14 @@
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/shopping_desc"
-    android:layout_below="@+id/notes"
+    android:layout_below="@id/notes"
     
         />
     <TextView
     android:id="@+id/shopping"  
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/shopping_label"
+    android:layout_below="@id/shopping_label"
     
     />    
 </RelativeLayout>

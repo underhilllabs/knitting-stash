@@ -147,11 +147,7 @@ public class ProjectView extends Activity {
 		f_uri = cur.getString(cur.getColumnIndex(DbAdapter.KEY_PICTURE));
 		if (f_uri != null) {
             setPic();
-		} else {
-			// Bitmap bm = BitmapFactory.decodeFile("/sdcard/pic"+rowid+".png");
-			// imagev.setImageBitmap(bm);
-
-		}
+		}  
 	}
 
 	public void copyFile(File sourceFile, File destFile) throws IOException {
@@ -208,6 +204,7 @@ public class ProjectView extends Activity {
 	}
 
     private void setPic() {
+        // hard-coding this to be 240dp
         Resources r = getResources();
         int width = (int) Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 240, r.getDisplayMetrics()));
         // Get the dimensions of the View
